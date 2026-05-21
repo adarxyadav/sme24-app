@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx shadcn@latest init --yes --defaults)",
+      "Bash(npx shadcn@latest add card dialog input tabs textarea scroll-area --yes)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"require\\('resend'\\); require\\('@supabase/supabase-js'\\); console.log\\('OK'\\)\")",
+      "Bash(git remote *)",
+      "Bash(git push *)"
+    ]
+  }
+}
