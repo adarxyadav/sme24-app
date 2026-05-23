@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SME24 Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Tokens ─── */
+    :root {
+      --color-bg:            #ffffff;
+      --color-surface:       #f6f6f6;
+      --color-canvas-dark:   #070719;
+      --color-surface-dark:  #13132b;
+      --color-hairline-dark: #2a2a4a;
+      --color-fg:            #0e0e0e;
+      --color-body:          #6b6b6b;
+      --color-on-dark:       #ffffff;
+      --color-brand:         #9259fd;
+      --color-brand-teal:    #38bdf8;
+      --color-border:        #e4e4e7;
+      --color-success:       #16a34a;
+      --color-warning:       #f59e0b;
+      --color-danger:        #dc2626;
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-fg); }
+
+    /* ─── Typography utilities ─── */
+    .type-display-hero    { font-size: 4rem;     font-weight: 500; line-height: 1.1;  letter-spacing: -0.03em; }
+    .type-display-section { font-size: 2.5rem;   font-weight: 500; line-height: 1.2;  letter-spacing: -0.02em; }
+    .type-display-sub     { font-size: 1.75rem;  font-weight: 500; line-height: 1.15; letter-spacing: -0.015em; }
+    .type-display-card    { font-size: 1.375rem; font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
+    .type-body-lg         { font-size: 1.125rem; font-weight: 400; line-height: 1.3;  letter-spacing: -0.01em; }
+    .type-body-md         { font-size: 1rem;     font-weight: 400; line-height: 1.5;  letter-spacing: -0.01em; }
+    .type-caption         { font-size: 0.875rem; font-weight: 400; line-height: 1.4;  letter-spacing: 0; }
+    .type-mono-eyebrow    { font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; line-height: 1;   letter-spacing: 0.05em;  text-transform: uppercase; }
+    .type-mono-button     { font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 500; line-height: 1;   letter-spacing: 0.06em;  text-transform: uppercase; }
+    .type-mono-label      { font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; line-height: 1.4; letter-spacing: 0.05em;  text-transform: uppercase; }
+
+    /* ─── Layout ─── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-light { background: var(--color-bg); padding: 5rem 0; }
+    .section-dark  { background: var(--color-canvas-dark); padding: 5rem 0; }
+
+    /* ─── Section label (meta-UI only) ─── */
+    .ds-section-label {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-brand);
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 0.75rem;
+      margin-bottom: 3rem;
+    }
+    .section-dark .ds-section-label {
+      color: var(--color-brand);
+      border-color: var(--color-hairline-dark);
+    }
+
+    /* ─── Grid helpers ─── */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    @media (max-width: 900px) {
+      .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .grid-3, .grid-4, .grid-2 { grid-template-columns: 1fr; }
+      .type-display-hero { font-size: 2.5rem; }
+      .type-display-section { font-size: 1.75rem; }
+    }
+
+    /* ─── Buttons ─── */
+    button, .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; border: none; border-radius: 4px;
+      padding: 0.625rem 1.5rem;
+      transition: opacity 0.15s;
+    }
+    button:hover, .btn:hover { opacity: 0.85; }
+    .btn-primary-light  { background: var(--color-fg); color: #fff; }
+    .btn-primary-dark   { background: var(--color-brand); color: #fff; }
+    .btn-secondary-dark { background: #1a1a35; color: #fff; border: 1px solid var(--color-hairline-dark); }
+    .btn-outline        { background: transparent; color: var(--color-fg); border: 1px solid var(--color-border); }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+    /* ─── Badges ─── */
+    .badge { display: inline-flex; border-radius: 4px; padding: 0.125rem 0.5rem; }
+    .badge-light  { background: #f0f0f0; color: var(--color-fg); border: 1px solid var(--color-border); }
+    .badge-dark   { background: var(--color-hairline-dark); color: #fff; }
+    .badge-brand  { background: rgba(146,89,253,0.1); color: var(--color-brand); border: 1px solid rgba(146,89,253,0.2); }
+
+    /* ─── Cards ─── */
+    .card-light { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 4px; padding: 1.5rem; }
+    .card-dark  { background: var(--color-surface-dark); border: 1px solid var(--color-hairline-dark); border-radius: 4px; padding: 1.5rem; }
+
+    /* ─── Swatch grid ─── */
+    .swatch-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .swatch { width: 80px; }
+    .swatch-box { height: 56px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.08); }
+    .swatch-name  { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.375rem; color: var(--color-body); }
+    .swatch-value { font-family: var(--font-mono); font-size: 0.625rem; color: var(--color-body); }
+
+    /* ─── Type specimens ─── */
+    .type-row { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--color-border); }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta { display: flex; gap: 2rem; }
+    .type-meta span { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-body); }
+
+    /* ─── Table ─── */
+    table { width: 100%; border-collapse: collapse; }
+    th { background: #f0f0f0; padding: 0.75rem 1rem; text-align: left; }
+    td { padding: 0.875rem 1rem; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; color: var(--color-body); }
+    td:first-child { color: var(--color-fg); }
+
+    /* ─── Hero band ─── */
+    .hero-band {
+      background: var(--color-canvas-dark);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; } }
+    .gradient-mesh {
+      width: 100%;
+      aspect-ratio: 1;
+      position: relative;
+      filter: blur(40px);
+    }
+    .mesh-a {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 40% 50%, rgba(146,89,253,0.7) 0%, transparent 70%);
+    }
+    .mesh-b {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 65% 40%, rgba(56,189,248,0.5) 0%, transparent 65%);
+    }
+
+    /* ─── Nav preview ─── */
+    .nav-preview {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-link { text-decoration: none; color: var(--color-fg); }
+
+    /* ─── Elevation showcase ─── */
+    .elevation-row { display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start; }
+    .elevation-item { flex: 1; min-width: 160px; }
+    .modal-preview { background: #fff; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); padding: 1.5rem; }
+    .tooltip-preview { background: var(--color-fg); color: #fff; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 0.5rem 0.75rem; display: inline-block; }
+
+    /* ─── Spacing ruler ─── */
+    .spacing-row { display: flex; flex-direction: column; gap: 0.5rem; }
+    .spacing-item { display: flex; align-items: center; gap: 1rem; }
+    .spacing-bar { background: var(--color-brand); height: 1rem; border-radius: 2px; opacity: 0.7; }
+    .spacing-label { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-body); min-width: 120px; }
+
+    /* ─── Wordmark footer ─── */
+    .wordmark-banner {
+      border-top: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+    .wordmark-text {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      color: var(--color-border);
+      white-space: nowrap;
+      line-height: 1;
+      padding: 1rem 1.5rem;
+      font-size: clamp(4rem, 12vw, 10rem);
+    }
+
+    /* ─── TOC nav ─── */
+    .toc {
+      position: fixed;
+      top: 0; left: 0;
+      width: 200px;
+      height: 100vh;
+      background: var(--color-bg);
+      border-right: 1px solid var(--color-border);
+      padding: 1.5rem 1rem;
+      overflow-y: auto;
+      z-index: 100;
+    }
+    .toc-title { font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-brand); margin-bottom: 1rem; }
+    .toc a { display: block; font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-body); text-decoration: none; padding: 0.3rem 0; }
+    .toc a:hover { color: var(--color-fg); }
+    .main-content { margin-left: 200px; }
+    @media (max-width: 768px) { .toc { display: none; } .main-content { margin-left: 0; } }
+  </style>
+</head>
+<body>
+
+<!-- TOC -->
+<nav class="toc">
+  <p class="toc-title">SME24 DS</p>
+  <a href="#colors">Colors</a>
+  <a href="#typography">Typography</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#badges">Badges</a>
+  <a href="#cards">Cards</a>
+  <a href="#elevation">Elevation</a>
+  <a href="#spacing">Spacing</a>
+  <a href="#nav">Nav</a>
+  <a href="#hero">Hero Band</a>
+  <a href="#table">Table</a>
+  <a href="#gradient">Gradient</a>
+  <a href="#wordmark">Wordmark</a>
+</nav>
+
+<div class="main-content">
+
+  <!-- ── Page header ── -->
+  <div style="background:var(--color-canvas-dark); padding: 4rem 0 3rem;">
+    <div class="container">
+      <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:1rem;">Design System</p>
+      <h1 class="type-display-hero" style="color:#fff; max-width:600px;">SME24 component reference</h1>
+      <p class="type-body-lg" style="color:rgba(255,255,255,0.5); margin-top:1rem; max-width:480px;">
+        Canonical tokens, type scale, and components for the SME24 EHS intelligence platform.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Colors ── -->
+  <section class="section-light" id="colors">
+    <div class="container">
+      <p class="ds-section-label">01 — Colors</p>
+
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1.5rem;">Light surface tokens</p>
+      <div class="swatch-row" style="margin-bottom:3rem;">
+        <div class="swatch"><div class="swatch-box" style="background:#ffffff; border:1px solid #e4e4e7;"></div><p class="swatch-name">BG</p><p class="swatch-value">#ffffff</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#f6f6f6;"></div><p class="swatch-name">Surface</p><p class="swatch-value">#f6f6f6</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#0e0e0e;"></div><p class="swatch-name">FG</p><p class="swatch-value">#0e0e0e</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#6b6b6b;"></div><p class="swatch-name">Body</p><p class="swatch-value">#6b6b6b</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#e4e4e7;"></div><p class="swatch-name">Border</p><p class="swatch-value">#e4e4e7</p></div>
+      </div>
+
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1.5rem;">Dark surface tokens</p>
+      <div class="swatch-row" style="margin-bottom:3rem;">
+        <div class="swatch"><div class="swatch-box" style="background:#070719;"></div><p class="swatch-name">Canvas</p><p class="swatch-value">#070719</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#13132b;"></div><p class="swatch-name">Surf Dark</p><p class="swatch-value">#13132b</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#2a2a4a;"></div><p class="swatch-name">Hairline</p><p class="swatch-value">#2a2a4a</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#ffffff; border:1px solid #e4e4e7;"></div><p class="swatch-name">On Dark</p><p class="swatch-value">#ffffff</p></div>
+      </div>
+
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1.5rem;">Brand & status</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-box" style="background:#9259fd;"></div><p class="swatch-name">Brand</p><p class="swatch-value">#9259fd</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#38bdf8;"></div><p class="swatch-name">Teal</p><p class="swatch-value">#38bdf8</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:linear-gradient(135deg,#9259fd,#38bdf8);"></div><p class="swatch-name">Gradient</p><p class="swatch-value">135deg</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#16a34a;"></div><p class="swatch-name">Success</p><p class="swatch-value">#16a34a</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#f59e0b;"></div><p class="swatch-name">Warning</p><p class="swatch-value">#f59e0b</p></div>
+        <div class="swatch"><div class="swatch-box" style="background:#dc2626;"></div><p class="swatch-name">Danger</p><p class="swatch-value">#dc2626</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Typography ── -->
+  <section style="background:var(--color-surface); padding:5rem 0;" id="typography">
+    <div class="container">
+      <p class="ds-section-label">02 — Typography</p>
+
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:2rem;">Inter — display scale</p>
+      <div style="margin-bottom:3rem;">
+        <div class="type-row">
+          <span class="type-display-hero">Display hero — 64px / −0.03em</span>
+          <div class="type-meta"><span>Inter 500</span><span>4rem</span><span>lh 1.1</span><span>ls −0.03em</span><span>.type-display-hero</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-display-section">Display section — 40px / −0.02em</span>
+          <div class="type-meta"><span>Inter 500</span><span>2.5rem</span><span>lh 1.2</span><span>ls −0.02em</span><span>.type-display-section</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-display-sub">Display sub — 28px / −0.015em</span>
+          <div class="type-meta"><span>Inter 500</span><span>1.75rem</span><span>lh 1.15</span><span>ls −0.015em</span><span>.type-display-sub</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-display-card">Display card — 22px / −0.01em</span>
+          <div class="type-meta"><span>Inter 500</span><span>1.375rem</span><span>lh 1.15</span><span>ls −0.01em</span><span>.type-display-card</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-body-lg">Body large — 18px. Lead paragraph copy runs here under section headlines.</span>
+          <div class="type-meta"><span>Inter 400</span><span>1.125rem</span><span>lh 1.3</span><span>ls −0.01em</span><span>.type-body-lg</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-body-md">Body medium — 16px. Default body text for most prose and UI descriptions in the platform.</span>
+          <div class="type-meta"><span>Inter 400</span><span>1rem</span><span>lh 1.5</span><span>ls −0.01em</span><span>.type-body-md</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-caption">Caption — 14px. Fine print, secondary captions, helper text, footnotes.</span>
+          <div class="type-meta"><span>Inter 400</span><span>0.875rem</span><span>lh 1.4</span><span>ls 0</span><span>.type-caption</span></div>
+        </div>
+      </div>
+
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:2rem;">JetBrains Mono — label scale (uppercase only)</p>
+      <div>
+        <div class="type-row">
+          <span class="type-mono-eyebrow" style="color:var(--color-fg); font-size:0.875rem;">Mono eyebrow — section labels, table headers</span>
+          <div class="type-meta"><span>Mono 500</span><span>0.6875rem</span><span>lh 1</span><span>ls 0.05em</span><span>.type-mono-eyebrow</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-mono-button" style="color:var(--color-fg); font-size:1rem;">Mono button — all button labels</span>
+          <div class="type-meta"><span>Mono 500</span><span>0.8125rem</span><span>lh 1</span><span>ls 0.06em</span><span>.type-mono-button</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-mono-label" style="color:var(--color-fg); font-size:0.875rem;">Mono label — badge text, tag pills, pricing row labels</span>
+          <div class="type-meta"><span>Mono 500</span><span>0.6875rem</span><span>lh 1.4</span><span>ls 0.05em</span><span>.type-mono-label</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Buttons ── -->
+  <section class="section-light" id="buttons">
+    <div class="container">
+      <p class="ds-section-label">03 — Buttons</p>
+      <div style="display:flex; flex-direction:column; gap:3rem;">
+
+        <div>
+          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1rem;">Light surface</p>
+          <div class="btn-group">
+            <button class="btn btn-primary-light type-mono-button">Start assessment</button>
+            <button class="btn btn-outline type-mono-button">Explore packages</button>
+          </div>
+        </div>
+
+        <div style="background:var(--color-canvas-dark); padding:2rem; border-radius:4px;">
+          <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:1rem;">Dark surface</p>
+          <div class="btn-group">
+            <button class="btn btn-primary-dark type-mono-button">Start assessment</button>
+            <button class="btn btn-secondary-dark type-mono-button">Explore packages</button>
+          </div>
+        </div>
+
+        <div>
+          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1rem;">Sizes</p>
+          <div class="btn-group" style="align-items:center;">
+            <button class="btn btn-primary-light type-mono-button" style="padding:0.5rem 1rem; font-size:0.6875rem;">Small</button>
+            <button class="btn btn-primary-light type-mono-button">Default</button>
+            <button class="btn btn-primary-light type-mono-button" style="padding:0.875rem 2rem; font-size:0.875rem;">Large</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Badges ── -->
+  <section style="background:var(--color-surface); padding:5rem 0;" id="badges">
+    <div class="container">
+      <p class="ds-section-label">04 — Badges</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; margin-bottom:2rem;">
+        <span class="badge badge-light type-mono-label">ISO 45001</span>
+        <span class="badge badge-light type-mono-label">EHS Snapshot</span>
+        <span class="badge badge-brand type-mono-label">AI Research</span>
+        <span class="badge badge-brand type-mono-label" style="background:rgba(22,163,74,0.1); color:#16a34a; border-color:rgba(22,163,74,0.2);">Verified</span>
+        <span class="badge badge-brand type-mono-label" style="background:rgba(245,158,11,0.1); color:#f59e0b; border-color:rgba(245,158,11,0.2);">Pending</span>
+        <span class="badge badge-brand type-mono-label" style="background:rgba(220,38,38,0.1); color:#dc2626; border-color:rgba(220,38,38,0.2);">Inactive</span>
+      </div>
+      <div style="background:var(--color-canvas-dark); padding:1.5rem; border-radius:4px; display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+        <span class="badge badge-dark type-mono-label">ISO 45001</span>
+        <span class="badge badge-dark type-mono-label">REACH Compliance</span>
+        <span class="badge type-mono-label" style="background:rgba(146,89,253,0.2); color:#9259fd; border-radius:4px; padding:0.125rem 0.5rem;">AI Match</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Cards ── -->
+  <section class="section-light" id="cards">
+    <div class="container">
+      <p class="ds-section-label">05 — Cards</p>
+
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1.5rem;">Light surface</p>
+      <div class="grid-3" style="margin-bottom:3rem;">
+        <div class="card-light">
+          <p class="type-mono-label" style="color:var(--color-body); margin-bottom:0.75rem;">EHS Snapshot</p>
+          <h3 class="type-display-card" style="color:var(--color-fg); margin-bottom:0.5rem;">Risk assessment complete</h3>
+          <p class="type-body-md" style="color:var(--color-body);">ISO 45001 gap analysis delivered within 48 hours of intake.</p>
+        </div>
+        <div class="card-light">
+          <p class="type-mono-label" style="color:var(--color-body); margin-bottom:0.75rem;">Expert match</p>
+          <h3 class="type-display-card" style="color:var(--color-fg); margin-bottom:0.5rem;">3 experts shortlisted</h3>
+          <p class="type-body-md" style="color:var(--color-body);">AI benchmarking scored 47 profiles. Top three forwarded for review.</p>
+        </div>
+        <div class="card-light">
+          <p class="type-mono-label" style="color:var(--color-body); margin-bottom:0.75rem;">Proposal ready</p>
+          <h3 class="type-display-card" style="color:var(--color-fg); margin-bottom:0.5rem;">Scope delivered</h3>
+          <p class="type-body-md" style="color:var(--color-body);">Structured proposal with timeline, deliverables, and fixed price.</p>
+        </div>
+      </div>
+
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1.5rem;">Dark surface</p>
+      <div style="background:var(--color-canvas-dark); padding:2rem; border-radius:4px;">
+        <div class="grid-3">
+          <div class="card-dark">
+            <p class="type-mono-label" style="color:var(--color-brand); margin-bottom:0.75rem;">ISO 45001</p>
+            <h3 class="type-display-card" style="color:#fff; margin-bottom:0.5rem;">Occupational safety</h3>
+            <p class="type-body-md" style="color:rgba(255,255,255,0.6);">OHSMS gap analysis and implementation roadmap.</p>
+          </div>
+          <div class="card-dark">
+            <p class="type-mono-label" style="color:var(--color-brand); margin-bottom:0.75rem;">REACH</p>
+            <h3 class="type-display-card" style="color:#fff; margin-bottom:0.5rem;">Chemical compliance</h3>
+            <p class="type-body-md" style="color:rgba(255,255,255,0.6);">SVHC screening and substance registration support.</p>
+          </div>
+          <div class="card-dark">
+            <p class="type-mono-label" style="color:var(--color-brand); margin-bottom:0.75rem;">ESG Reporting</p>
+            <h3 class="type-display-card" style="color:#fff; margin-bottom:0.5rem;">Disclosure readiness</h3>
+            <p class="type-body-md" style="color:rgba(255,255,255,0.6);">GRI and CSRD alignment with materiality assessment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Elevation ── -->
+  <section style="background:var(--color-surface); padding:5rem 0;" id="elevation">
+    <div class="container">
+      <p class="ds-section-label">06 — Elevation</p>
+      <div class="elevation-row">
+        <div class="elevation-item">
+          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1rem;">Card light</p>
+          <div class="card-light">
+            <p class="type-caption" style="color:var(--color-body);">border + surface contrast. No shadow.</p>
+          </div>
+        </div>
+        <div class="elevation-item" style="background:var(--color-canvas-dark); padding:1.5rem; border-radius:4px;">
+          <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:1rem;">Card dark</p>
+          <div class="card-dark">
+            <p class="type-caption" style="color:rgba(255,255,255,0.5);">hairline border + surface contrast. No shadow.</p>
+          </div>
+        </div>
+        <div class="elevation-item">
+          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1rem;">Modal</p>
+          <div class="modal-preview">
+            <p class="type-display-card" style="margin-bottom:0.5rem;">Modal title</p>
+            <p class="type-caption" style="color:var(--color-body);">Only component with shadow-lg. rounded-md (8px).</p>
+          </div>
+        </div>
+        <div class="elevation-item">
+          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1rem;">Tooltip</p>
+          <div>
+            <div class="tooltip-preview type-mono-label">ISO 45001 gap score: 72%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Spacing ── -->
+  <section class="section-light" id="spacing">
+    <div class="container">
+      <p class="ds-section-label">07 — Spacing</p>
+      <div class="spacing-row">
+        <div class="spacing-item"><span class="spacing-label">2 — 8px — icon gap</span><div class="spacing-bar" style="width:8px;"></div></div>
+        <div class="spacing-item"><span class="spacing-label">3 — 12px — nav gap</span><div class="spacing-bar" style="width:12px;"></div></div>
+        <div class="spacing-item"><span class="spacing-label">4 — 16px — card gap</span><div class="spacing-bar" style="width:16px;"></div></div>
+        <div class="spacing-item"><span class="spacing-label">6 — 24px — card padding</span><div class="spacing-bar" style="width:24px;"></div></div>
+        <div class="spacing-item"><span class="spacing-label">8 — 32px — column gap</span><div class="spacing-bar" style="width:32px;"></div></div>
+        <div class="spacing-item"><span class="spacing-label">12 — 48px — headline→grid</span><div class="spacing-bar" style="width:48px;"></div></div>
+        <div class="spacing-item"><span class="spacing-label">20 — 80px — section py</span><div class="spacing-bar" style="width:80px;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Nav ── -->
+  <section style="background:var(--color-surface); padding:5rem 0;" id="nav">
+    <div class="container">
+      <p class="ds-section-label">08 — Nav</p>
+      <div style="display:flex; flex-direction:column; gap:1.5rem;">
+        <div>
+          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:0.75rem;">After scroll — light</p>
+          <div class="nav-preview">
+            <span class="type-mono-button" style="color:var(--color-fg);">SME24</span>
+            <div class="nav-links">
+              <a href="#" class="nav-link type-mono-button">Platform</a>
+              <a href="#" class="nav-link type-mono-button">Experts</a>
+              <a href="#" class="nav-link type-mono-button">Packages</a>
+            </div>
+            <button class="btn btn-primary-light type-mono-button">Get started</button>
+          </div>
+        </div>
+        <div>
+          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:0.75rem;">Hero — dark</p>
+          <div class="nav-preview" style="background:rgba(7,7,25,0.9); border-color:var(--color-hairline-dark);">
+            <span class="type-mono-button" style="color:#fff;">SME24</span>
+            <div class="nav-links">
+              <a href="#" class="type-mono-button" style="color:rgba(255,255,255,0.7); text-decoration:none;">Platform</a>
+              <a href="#" class="type-mono-button" style="color:rgba(255,255,255,0.7); text-decoration:none;">Experts</a>
+              <a href="#" class="type-mono-button" style="color:rgba(255,255,255,0.7); text-decoration:none;">Packages</a>
+            </div>
+            <button class="btn btn-primary-dark type-mono-button">Get started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Hero Band ── -->
+  <section id="hero">
+    <div class="hero-band">
+      <div class="container">
+        <p class="ds-section-label">09 — Hero Band</p>
+        <div class="hero-grid">
+          <div>
+            <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:1rem;">AI-Powered EHS Intelligence</p>
+            <h1 class="type-display-hero" style="color:#fff; margin-bottom:1.5rem;">
+              From company name to expert proposal in minutes
+            </h1>
+            <p class="type-body-lg" style="color:rgba(255,255,255,0.5); margin-bottom:2rem;">
+              SME24 runs the compliance research so your experts focus on the work that matters.
+            </p>
+            <div class="btn-group">
+              <button class="btn btn-primary-dark type-mono-button">Start your assessment</button>
+              <button class="btn btn-secondary-dark type-mono-button">Explore packages</button>
+            </div>
+          </div>
+          <div style="position:relative; min-height:320px;">
+            <div class="gradient-mesh">
+              <div class="mesh-a"></div>
+              <div class="mesh-b"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Table ── -->
+  <section class="section-light" id="table">
+    <div class="container">
+      <p class="ds-section-label">10 — Table</p>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th class="type-mono-eyebrow">KPI Indicator</th>
+              <th class="type-mono-eyebrow">Category</th>
+              <th class="type-mono-eyebrow">Benchmark</th>
+              <th class="type-mono-eyebrow">Client Score</th>
+              <th class="type-mono-eyebrow">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lost Time Injury Rate</td>
+              <td><span class="type-mono-label" style="color:var(--color-body);">Lagging</span></td>
+              <td>≤ 2.1</td>
+              <td>1.8</td>
+              <td><span class="badge badge-brand type-mono-label" style="background:rgba(22,163,74,0.1); color:#16a34a; border-color:rgba(22,163,74,0.2);">On track</span></td>
+            </tr>
+            <tr>
+              <td>Safety Observation Rate</td>
+              <td><span class="type-mono-label" style="color:var(--color-body);">Leading</span></td>
+              <td>≥ 85%</td>
+              <td>61%</td>
+              <td><span class="badge badge-brand type-mono-label" style="background:rgba(245,158,11,0.1); color:#f59e0b; border-color:rgba(245,158,11,0.2);">Gap</span></td>
+            </tr>
+            <tr>
+              <td>ISO 45001 Clause Coverage</td>
+              <td><span class="type-mono-label" style="color:var(--color-body);">Leading</span></td>
+              <td>≥ 90%</td>
+              <td>42%</td>
+              <td><span class="badge badge-brand type-mono-label" style="background:rgba(220,38,38,0.1); color:#dc2626; border-color:rgba(220,38,38,0.2);">Critical</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Gradient specimen ── -->
+  <section style="background:var(--color-canvas-dark); padding:5rem 0;" id="gradient">
+    <div class="container">
+      <p class="ds-section-label">11 — Brand Gradient</p>
+      <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:1rem;">Single fixed object — hero scale only</p>
+      <p class="type-body-md" style="color:rgba(255,255,255,0.5); margin-bottom:2rem; max-width:520px;">
+        Two organic overlapping ellipses rendered with blur and screen blend mode. Never miniaturised, never reordered. Minimum rendered width 400px.
+      </p>
+      <div style="max-width:520px; height:300px; position:relative; border-radius:4px; overflow:hidden; border:1px solid var(--color-hairline-dark);">
+        <div style="position:absolute; inset:0; filter:blur(50px);">
+          <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 38% 55%, rgba(146,89,253,0.8) 0%, transparent 65%);"></div>
+          <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 65% 38%, rgba(56,189,248,0.6) 0%, transparent 60%);"></div>
+        </div>
+        <div style="position:absolute; bottom:1rem; left:1rem;">
+          <span class="type-mono-label" style="color:rgba(255,255,255,0.4);">#9259fd → #38bdf8 · blur(40px) · mix-blend-mode: screen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Eyebrow pattern ── -->
+  <section class="section-light">
+    <div class="container">
+      <p class="ds-section-label">12 — Eyebrow + Headline pattern</p>
+      <div class="grid-2">
+        <div>
+          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:0.75rem;">AI Research Pipeline</p>
+          <h2 class="type-display-section" style="color:var(--color-fg); margin-bottom:1rem;">From company name to benchmarked proposal</h2>
+          <p class="type-body-lg" style="color:var(--color-body);">Light surface: eyebrow in <code style="font-family:var(--font-mono); font-size:0.75rem; background:#f0f0f0; padding:0.1em 0.3em; border-radius:2px;">text-body</code></p>
+        </div>
+        <div style="background:var(--color-canvas-dark); padding:2rem; border-radius:4px;">
+          <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:0.75rem;">AI Research Pipeline</p>
+          <h2 class="type-display-section" style="color:#fff; margin-bottom:1rem;">From company name to benchmarked proposal</h2>
+          <p class="type-body-lg" style="color:rgba(255,255,255,0.5);">Dark surface: eyebrow in <code style="font-family:var(--font-mono); font-size:0.75rem; background:var(--color-hairline-dark); padding:0.1em 0.3em; border-radius:2px; color:#fff;">text-brand</code></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Wordmark ── -->
+  <section id="wordmark" style="background:var(--color-bg);">
+    <div style="max-width:1280px; margin:0 auto; padding:3rem 1.5rem 0;">
+      <p class="ds-section-label">13 — Footer Wordmark</p>
+      <p class="type-caption" style="color:var(--color-body); margin-bottom:2rem;">Tinted to hairline color (#e4e4e7) — a faint stencil sign-off. Never a heavy title.</p>
+    </div>
+    <div class="wordmark-banner">
+      <p class="wordmark-text">sme24.ch</p>
+    </div>
+    <div style="max-width:1280px; margin:0 auto; padding:1rem 1.5rem 3rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--color-border);">
+      <span class="type-mono-label" style="color:var(--color-body);">© 2026 SME24 AG</span>
+      <span class="type-mono-label" style="color:var(--color-body);">EHS Intelligence Platform</span>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

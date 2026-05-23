@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx shadcn@latest init --yes --defaults)",
+      "Bash(npx shadcn@latest add card dialog input tabs textarea scroll-area --yes)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"require\\('resend'\\); require\\('@supabase/supabase-js'\\); console.log\\('OK'\\)\")",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git checkout *)",
+      "Bash(awk -F/ '{print $1\"/\"$2}')",
+      "Bash(gh pr *)",
+      "Bash(awk -F/ '{print $1}')",
+      "Bash(open /var/folders/tp/3dkn3cvj11n80msm2xlc0sv00000gn/T/architecture-review-20260521-205735.html)",
+      "Bash(gh repo *)",
+      "Bash(git -C /Users/adarshyadav/Documents/AKAIV/sme24-app remote -v)",
+      "Bash(brew list *)",
+      "Read(//usr/local/bin/**)",
+      "Bash(printenv)",
+      "Bash(brew install *)",
+      "Bash(gh auth *)",
+      "Bash(rm -rf app/\\\\\\(marketing\\\\\\) app/admin app/auth app/expert app/portal)",
+      "Bash(rm -rf components/admin components/auth components/expert components/marketing components/portal)",
+      "Bash(rm -f lib/auth.ts lib/packages.ts lib/resend.ts lib/supabase/browser.ts lib/supabase/server.ts)",
+      "Bash(rmdir lib/supabase)",
+      "Bash(rm /Users/adarshyadav/Documents/AKAIV/sme24-app/context/ui-context.md /Users/adarshyadav/Documents/AKAIV/sme24-app/PRD.md)",
+      "Bash(git -C /Users/adarshyadav/Documents/AKAIV/sme24-app status --short)",
+      "Bash(git add *)"
+    ],
+    "additionalDirectories": [
+      "/var/folders/tp/3dkn3cvj11n80msm2xlc0sv00000gn/T",
+      "/private/var/folders/tp/3dkn3cvj11n80msm2xlc0sv00000gn/T",
+      "/Users/adarshyadav/Documents/AKAIV/sme24-app/context"
+    ]
+  }
+}
