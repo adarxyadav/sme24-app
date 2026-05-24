@@ -13,45 +13,82 @@ Note: Package data inline static array — no `lib/packages.ts` yet (Unit 09).
 ```ts
 const packages = [
   {
-    id: "snapshot",
     name: "EHS Snapshot",
     price: "CHF 2,000",
-    bestFor: "Quick operational visibility",
+    priceNote: "fixed price",
+    bestFor: "Quick visibility",
     format: "Remote (1 day)",
-    deliverables: ["Top 5 risk areas identified", "KPI benchmark vs industry peers", "Prioritised risk register"],
-    timeline: "48h turnaround",
-    cta: { label: "GET STARTED", href: "/auth/signup", variant: "primary" },
+    output: "Top 5 risks",
+    features: [
+      "AI company research",
+      "Industry peer benchmarking",
+      "Top 5 risk exposure areas",
+      "Expert shortlist (top 3)",
+      "Remote delivery",
+    ],
+    cta: "Get started",
+    ctaHref: "/auth/signup",
+    dark: false,
+    stripe: true,
   },
   {
-    id: "reality-check",
     name: "EHS Reality Check",
     price: "CHF 5,000",
-    bestFor: "Validate real operational risks",
+    priceNote: "fixed price",
+    bestFor: "Validate real risks",
     format: "On-site (2 days)",
-    deliverables: ["Top 20 risks assessed", "Safety maturity score", "Leadership gap analysis", "Action priority list"],
-    timeline: "Report within 5 days",
-    cta: { label: "GET STARTED", href: "/auth/signup", variant: "primary" },
-    featured: true, // polarity-flipped dark card
+    output: "Top 20 risks",
+    features: [
+      "AI company research",
+      "Industry peer benchmarking",
+      "Top 20 risk exposure areas",
+      "Expert shortlist (top 3)",
+      "2-day on-site assessment",
+      "Prioritised action plan",
+    ],
+    cta: "Get started",
+    ctaHref: "/auth/signup",
+    dark: true,
+    stripe: true,
   },
   {
-    id: "transformation",
     name: "EHS Transformation Plan",
     price: "CHF 10,000",
+    priceNote: "fixed price",
     bestFor: "Fix systematically",
     format: "On-site (5 days)",
-    deliverables: ["Full gap analysis", "Transformation roadmap", "PMO-ready action plan", "Compliance alignment review"],
-    timeline: "Report within 10 days",
-    cta: { label: "GET STARTED", href: "/auth/signup", variant: "primary" },
+    output: "Gap plan & timeline",
+    features: [
+      "AI company research",
+      "Full KPI benchmark report",
+      "Gap analysis vs ISO 45001",
+      "5-day on-site engagement",
+      "Transformation roadmap",
+      "Implementation timeline",
+    ],
+    cta: "Get started",
+    ctaHref: "/auth/signup",
+    dark: false,
+    stripe: true,
   },
   {
-    id: "execution",
     name: "EHS Execution Partner",
-    price: "CHF 10,000 + 1,850/day",
-    bestFor: "Deliver measured risk reduction",
-    format: "On-site + Ongoing",
-    deliverables: ["Measured risk reduction", "Multi-site delivery", "Leadership programme", "Governance framework"],
-    timeline: "Ongoing engagement",
-    cta: { label: "LET'S TALK", href: "/contact", variant: "ghost-dark" },
+    price: "CHF 10,000",
+    priceNote: "+ CHF 1,850 / day ongoing",
+    bestFor: "Deliver results",
+    format: "On-site + ongoing",
+    output: "Measured risk reduction",
+    features: [
+      "Everything in Transformation Plan",
+      "Ongoing expert engagement",
+      "Monthly progress check-ins",
+      "Measured risk reduction metrics",
+      "Custom delivery scope",
+    ],
+    cta: "Let's talk",
+    ctaHref: "/contact",
+    dark: false,
+    stripe: false,
   },
 ]
 ```
@@ -92,13 +129,16 @@ Layout: 4-up desktop → 2-up tablet → 1-up mobile
 
 **Card rendering rules:**
 - Standard cards: `bg-white border border-[#E8E8E8] rounded-sm p-6`
-- Featured card (`featured: true` — EHS Reality Check): `bg-[#010125] rounded-sm p-6` (polarity-flipped, per design pricing tier pattern)
-- Package name: `type-mono-label text-[#959494] mb-2` (standard) or `type-mono-label text-[#959494] mb-2` (featured)
-- Price: `type-display-lg text-[#000000]` (standard) or `type-display-lg text-white` (featured)
-- Best for: `type-body-md text-[#959494]` (standard) or `type-body-md text-white/60` (featured)
-- Format badge: `bg-[#E8E8E8] text-[#000000] type-mono-label rounded-sm px-2 py-0.5` (standard) or `bg-[#313641] text-white type-mono-label rounded-sm px-2 py-0.5` (featured)
-- Deliverables: `type-body-md text-[#959494]` (standard) or `type-body-md text-white/60` (featured), `border-t border-[#E8E8E8]` (standard) or `border-t border-[#26263A]` (featured) dividers
-- CTA: primary `bg-[#9259FD] text-white` for GET STARTED, ghost-dark `bg-[#313641] text-white` for LET'S TALK
+- Dark card (`dark: true` — EHS Reality Check): `bg-canvas-dark rounded-sm p-6` (polarity-flipped, per design pricing tier pattern)
+- Package name: `type-mono-label text-[#959494] mb-3`
+- Price: `type-display-lg mb-1` — `text-[#000000]` (standard) or `text-white` (dark)
+- Price note: `type-caption mb-4` — `text-[#959494]` (standard) or `text-white/40` (dark)
+- Best for: `type-body-md mb-6` — `text-[#959494]` (standard) or `text-white/60` (dark)
+- Features list: `type-mono-label flex items-center gap-2` with bullet dots — `text-[#959494]` (standard) or `text-white/60` (dark)
+- Bullet dots: `w-1 h-1 rounded-full` — `bg-[#959494]` (standard) or `bg-[#9259FD]` (dark)
+- Format/Output section: `border-t` — `border-[#E8E8E8]` (standard) or `border-[#26263A]` (dark)
+- Format & Output labels: `type-mono-label` — `text-[#959494]` (standard) or `text-white/40` (dark)
+- CTA: primary `bg-[#9259FD] text-white` for packages with Stripe, ghost-dark `bg-surface-dark-soft text-white` for contact packages
 
 ---
 

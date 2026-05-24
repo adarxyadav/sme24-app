@@ -20,7 +20,9 @@ export async function submitContactForm(
 
   // TODO: Unit 11 — send via Resend when configured
   // const { error } = await resend.emails.send({ from, to, subject, html });
-  console.log("Contact form submission:", { name, email, company, message });
+  if (process.env.NODE_ENV !== "production") {
+    console.log("Contact form submission:", { name, email, company, message });
+  }
 
   return { status: "success", message: "Thanks — we'll be in touch shortly." };
 }

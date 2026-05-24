@@ -63,41 +63,39 @@ export function Nav() {
       </div>
 
       {/* Mobile full-screen overlay */}
-      <div
-        className={`fixed inset-0 bg-canvas-dark z-100 flex flex-col items-center justify-center transition-opacity duration-200 ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <button
-          onClick={() => setMobileOpen(false)}
-          className="absolute top-5 right-6 text-white p-2"
-          aria-label="Close menu"
-        >
-          <X size={24} />
-        </button>
-
-        <div className="flex flex-col items-center gap-10">
-          {links.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setMobileOpen(false)}
-              className={`type-display-md ${
-                pathname === href ? "text-white" : "text-white/60"
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-          <Link
-            href="/auth/signup"
+      {mobileOpen && (
+        <div className="fixed inset-0 bg-canvas-dark z-100 flex flex-col items-center justify-center">
+          <button
             onClick={() => setMobileOpen(false)}
-            className="type-mono-button bg-white text-[#000000] px-8 py-3 rounded-sm mt-4"
+            className="absolute top-5 right-6 text-white p-2"
+            aria-label="Close menu"
           >
-            Get your benchmark
-          </Link>
+            <X size={24} />
+          </button>
+
+          <div className="flex flex-col items-center gap-10">
+            {links.map(({ label, href }) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setMobileOpen(false)}
+                className={`type-display-md ${
+                  pathname === href ? "text-white" : "text-white/60"
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
+            <Link
+              href="/auth/signup"
+              onClick={() => setMobileOpen(false)}
+              className="type-mono-button bg-white text-[#000000] px-8 py-3 rounded-sm mt-4"
+            >
+              Get your benchmark
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 }

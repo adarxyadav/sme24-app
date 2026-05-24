@@ -63,9 +63,15 @@ export function Footer() {
                   { label: "Terms of service", href: "#" },
                 ].map(({ label, href }) => (
                   <li key={label}>
-                    <a href={href} className="type-mono-label text-white/80 hover:text-[#9259FD] transition-colors">
-                      {label}
-                    </a>
+                    {href && href !== "#" ? (
+                      <a href={href} className="type-mono-label text-white/80 hover:text-[#9259FD] transition-colors">
+                        {label}
+                      </a>
+                    ) : (
+                      <span className="type-mono-label text-white/80" aria-disabled="true" role="link">
+                        {label}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -73,9 +79,9 @@ export function Footer() {
             <div>
               <p className="type-mono-label text-white/40 mb-4">Follow</p>
               {/* TODO: replace href with confirmed LinkedIn URL */}
-              <a href="#" className="type-mono-label text-white/80 hover:text-[#9259FD] transition-colors">
+              <span className="type-mono-label text-white/80" aria-disabled="true" role="link">
                 LinkedIn
-              </a>
+              </span>
             </div>
           </div>
 

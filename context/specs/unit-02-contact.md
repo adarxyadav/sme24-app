@@ -60,7 +60,11 @@ Error state: `type-body-md text-[#DC2626]` below submit — "Something went wron
 'use server'
 export async function submitContactForm(formData: FormData) {
   // TODO: wire Resend in Unit 11
-  console.log('contact form submission', Object.fromEntries(formData))
+  // Do not log PII (name, email, message) in production
+  console.log('contact form submitted', {
+    fields: Array.from(formData.keys()),
+    hasMessage: Boolean(formData.get('message'))
+  })
   return { success: true }
 }
 ```

@@ -15,8 +15,8 @@ calls are in `trigger/` — never in request handlers.
 
 - Key: `(company_slug, yyyy-mm)` where `company_slug` is a URL-safe normalisation of the
   company name and `yyyy-mm` is the current UTC month.
-- On task start: query `benchmarks` for a matching key. If found, skip Steps 1–2 and link
-  the existing Benchmark to this Run.
+- On task start: query `benchmarks` for a matching key where `status = 'completed'`. If found,
+  skip Steps 1–2 and link the existing Benchmark to this Run.
 - If not found: execute Steps 1–2, write a new Benchmark row, link it to the Run.
 
 ## Pipeline Steps
@@ -39,6 +39,7 @@ calls are in `trigger/` — never in request handlers.
 - Input: `risk_profile_tags[]` from the Benchmark, active `experts` rows with their
   `competency_tag_ids[]`.
 - Algorithm: overlap score = `|risk_profile_tags ∩ expert_tags| / |risk_profile_tags|`.
+  If `risk_profile_tags` is empty, set overlap score to 0 and flag the candidate for manual review.
   Tie-break: expert `rating` desc, then `created_at` asc.
 - Output: top-3 experts (ids, scores, tag snapshot at match time).
 - Written to: `shortlist_items` rows linked to the Run. Never re-derived from live expert data.
