@@ -26,7 +26,13 @@
       "Bash(rmdir lib/supabase)",
       "Bash(rm /Users/adarshyadav/Documents/AKAIV/sme24-app/context/ui-context.md /Users/adarshyadav/Documents/AKAIV/sme24-app/PRD.md)",
       "Bash(git -C /Users/adarshyadav/Documents/AKAIV/sme24-app status --short)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m *)",
+      "Bash(git commit --amend --no-edit)",
+      "Bash(git branch --list *)",
+      "Bash(git branch --show-current)",
+      "Bash(mkdir -p context/specs)",
+      "Bash(git rebase *)"
     ],
     "additionalDirectories": [
       "/var/folders/tp/3dkn3cvj11n80msm2xlc0sv00000gn/T",

@@ -6,206 +6,245 @@
   <title>SME24 Design System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     /* ─── Tokens ─── */
     :root {
-      --color-bg:            #ffffff;
-      --color-surface:       #f6f6f6;
-      --color-canvas-dark:   #070719;
-      --color-surface-dark:  #13132b;
-      --color-hairline-dark: #2a2a4a;
-      --color-fg:            #0e0e0e;
-      --color-body:          #6b6b6b;
-      --color-on-dark:       #ffffff;
-      --color-brand:         #9259fd;
-      --color-brand-teal:    #38bdf8;
-      --color-border:        #e4e4e7;
-      --color-success:       #16a34a;
-      --color-warning:       #f59e0b;
-      --color-danger:        #dc2626;
-      --font-sans: 'Inter', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
+      --color-ink:               #000000;
+      --color-primary:           #CB3CFF;
+      --color-canvas:            #F7F7F9;
+      --color-hairline:          #E8E8E8;
+      --color-canvas-dark:       #111111;
+      --color-hairline-dark:     #26263A;
+      --color-surface-dark-soft: #313641;
+      --color-body:              #959494;
+      --color-on-dark:           #F7F7F9;
+      --color-brand-violet:      #CB3CFF;
+      --color-brand-magenta:     #EF5CC1;
+      --color-brand-orange:      #FC4C02;
+      --color-accent-mint:       #CBF6F9;
+      --color-tint-violet:       #E8DDFF;
+      --color-tint-peach:        #FFE5D3;
+      --color-success:           #16A34A;
+      --color-warning:           #F59E0B;
+      --color-danger:            #DC2626;
+      --font-sans: 'Urbanist', system-ui, sans-serif;
+      --font-mono: 'PP Neue Montreal Mono', 'Geist Mono', monospace;
+      --brand-gradient: linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%);
     }
 
     /* ─── Reset ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-fg); }
+    body { font-family: var(--font-sans); background: var(--color-canvas); color: var(--color-ink); }
 
-    /* ─── Typography utilities ─── */
-    .type-display-hero    { font-size: 4rem;     font-weight: 500; line-height: 1.1;  letter-spacing: -0.03em; }
-    .type-display-section { font-size: 2.5rem;   font-weight: 500; line-height: 1.2;  letter-spacing: -0.02em; }
-    .type-display-sub     { font-size: 1.75rem;  font-weight: 500; line-height: 1.15; letter-spacing: -0.015em; }
-    .type-display-card    { font-size: 1.375rem; font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
-    .type-body-lg         { font-size: 1.125rem; font-weight: 400; line-height: 1.3;  letter-spacing: -0.01em; }
-    .type-body-md         { font-size: 1rem;     font-weight: 400; line-height: 1.5;  letter-spacing: -0.01em; }
-    .type-caption         { font-size: 0.875rem; font-weight: 400; line-height: 1.4;  letter-spacing: 0; }
-    .type-mono-eyebrow    { font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; line-height: 1;   letter-spacing: 0.05em;  text-transform: uppercase; }
-    .type-mono-button     { font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 500; line-height: 1;   letter-spacing: 0.06em;  text-transform: uppercase; }
-    .type-mono-label      { font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; line-height: 1.4; letter-spacing: 0.05em;  text-transform: uppercase; }
+    /* ─── Typography ─── */
+    .type-display-xxl   { font-size: 64px;  font-weight: 500; line-height: 70.4px; letter-spacing: -1.92px; }
+    .type-display-xl    { font-size: 40px;  font-weight: 500; line-height: 48px;   letter-spacing: -0.8px; }
+    .type-display-lg    { font-size: 28px;  font-weight: 500; line-height: 32.2px; letter-spacing: -0.42px; }
+    .type-display-md    { font-size: 22px;  font-weight: 500; line-height: 25.3px; letter-spacing: -0.22px; }
+    .type-body-lg       { font-size: 18px;  font-weight: 400; line-height: 23.4px; letter-spacing: -0.18px; }
+    .type-body-lg-strong{ font-size: 18px;  font-weight: 500; line-height: 23.4px; letter-spacing: -0.18px; }
+    .type-body-md       { font-size: 16px;  font-weight: 400; line-height: 20.8px; letter-spacing: -0.16px; }
+    .type-body-md-strong{ font-size: 16px;  font-weight: 500; line-height: 20.8px; letter-spacing: -0.16px; }
+    .type-caption       { font-size: 14px;  font-weight: 400; line-height: 19.6px; letter-spacing: 0; }
+    .type-caption-strong{ font-size: 14px;  font-weight: 500; line-height: 19.6px; letter-spacing: 0; }
+    .type-mono-button   { font-family: var(--font-mono); font-size: 14px;  font-weight: 500; line-height: 1;      letter-spacing: 0.08px;  text-transform: uppercase; }
+    .type-mono-eyebrow  { font-family: var(--font-mono); font-size: 11px;  font-weight: 500; line-height: 11px;   letter-spacing: 0.55em;  text-transform: uppercase; }
+    .type-mono-label    { font-family: var(--font-mono); font-size: 11px;  font-weight: 500; line-height: 15.4px; letter-spacing: 0.055em; text-transform: uppercase; }
+    .type-mono-caption  { font-family: var(--font-mono); font-size: 10px;  font-weight: 400; line-height: 14px;   letter-spacing: 0.05em;  text-transform: uppercase; }
 
     /* ─── Layout ─── */
     .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-    .section-light { background: var(--color-bg); padding: 5rem 0; }
-    .section-dark  { background: var(--color-canvas-dark); padding: 5rem 0; }
+    .section-light { background: var(--color-canvas); padding: 80px 0; }
+    .section-soft  { background: #F7F7F7; padding: 80px 0; }
+    .section-dark  { background: var(--color-canvas-dark); padding: 80px 0; }
 
-    /* ─── Section label (meta-UI only) ─── */
+    /* ─── Section label ─── */
     .ds-section-label {
       font-family: var(--font-mono);
-      font-size: 0.625rem;
+      font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--color-brand);
-      border-bottom: 1px solid var(--color-border);
-      padding-bottom: 0.75rem;
-      margin-bottom: 3rem;
+      color: var(--color-body);
+      border-bottom: 1px solid var(--color-hairline);
+      padding-bottom: 12px;
+      margin-bottom: 48px;
     }
     .section-dark .ds-section-label {
-      color: var(--color-brand);
+      color: rgba(255,255,255,0.35);
       border-color: var(--color-hairline-dark);
     }
 
-    /* ─── Grid helpers ─── */
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    /* ─── Grids ─── */
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 2rem; }
     @media (max-width: 900px) {
-      .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-4 { grid-template-columns: repeat(2,1fr); }
+      .grid-3 { grid-template-columns: repeat(2,1fr); }
     }
     @media (max-width: 560px) {
-      .grid-3, .grid-4, .grid-2 { grid-template-columns: 1fr; }
-      .type-display-hero { font-size: 2.5rem; }
-      .type-display-section { font-size: 1.75rem; }
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .type-display-xxl { font-size: 40px; line-height: 48px; }
+      .type-display-xl  { font-size: 28px; line-height: 34px; }
     }
 
     /* ─── Buttons ─── */
-    button, .btn {
+    .btn {
       display: inline-flex; align-items: center; justify-content: center;
       cursor: pointer; border: none; border-radius: 4px;
-      padding: 0.625rem 1.5rem;
+      height: 44px; padding: 0 24px;
+      font-family: var(--font-mono); font-size: 14px; font-weight: 500;
+      letter-spacing: 0.08px; text-transform: uppercase;
       transition: opacity 0.15s;
     }
-    button:hover, .btn:hover { opacity: 0.85; }
-    .btn-primary-light  { background: var(--color-fg); color: #fff; }
-    .btn-primary-dark   { background: var(--color-brand); color: #fff; }
-    .btn-secondary-dark { background: #1a1a35; color: #fff; border: 1px solid var(--color-hairline-dark); }
-    .btn-outline        { background: transparent; color: var(--color-fg); border: 1px solid var(--color-border); }
-    .btn-group { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .btn:hover { opacity: 0.82; }
+    .btn-primary     { background: var(--color-primary); color: #fff; }
+    .btn-mint        { background: var(--color-accent-mint); color: var(--color-ink); }
+    .btn-white       { background: #fff; color: var(--color-ink); }
+    .btn-ghost-dark  { background: var(--color-surface-dark-soft); color: #fff; }
+    .btn-outline     { background: transparent; color: var(--color-ink); border: 1px solid var(--color-hairline); border-radius: 3.25px; }
+    .btn-icon-circle {
+      width: 40px; height: 40px; padding: 0; border-radius: 9999px;
+      background: var(--color-ink); color: #fff;
+      font-size: 16px;
+    }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 
     /* ─── Badges ─── */
-    .badge { display: inline-flex; border-radius: 4px; padding: 0.125rem 0.5rem; }
-    .badge-light  { background: #f0f0f0; color: var(--color-fg); border: 1px solid var(--color-border); }
-    .badge-dark   { background: var(--color-hairline-dark); color: #fff; }
-    .badge-brand  { background: rgba(146,89,253,0.1); color: var(--color-brand); border: 1px solid rgba(146,89,253,0.2); }
+    .badge { display: inline-flex; align-items: center; border-radius: 4px; padding: 2px 8px; }
+    .badge-neutral  { background: var(--color-hairline); color: var(--color-ink); }
+    .badge-subtle   { background: #fff; color: var(--color-ink); border: 1px solid var(--color-hairline); }
+    .badge-on-dark  { background: var(--color-surface-dark-soft); color: #fff; }
 
     /* ─── Cards ─── */
-    .card-light { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 4px; padding: 1.5rem; }
-    .card-dark  { background: var(--color-surface-dark); border: 1px solid var(--color-hairline-dark); border-radius: 4px; padding: 1.5rem; }
+    .card-light { background: var(--color-canvas); border: 1px solid var(--color-hairline); border-radius: 4px; padding: 24px; }
+    .card-dark  { background: var(--color-surface-dark-soft); border: 1px solid var(--color-hairline-dark); border-radius: 4px; padding: 24px; }
 
-    /* ─── Swatch grid ─── */
-    .swatch-row { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .swatch { width: 80px; }
-    .swatch-box { height: 56px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.08); }
-    .swatch-name  { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.375rem; color: var(--color-body); }
-    .swatch-value { font-family: var(--font-mono); font-size: 0.625rem; color: var(--color-body); }
+    /* ─── Swatches ─── */
+    .swatch-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .swatch { width: 88px; }
+    .swatch-box { height: 64px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.07); }
+    .swatch-name  { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 6px; color: var(--color-ink); }
+    .swatch-value { font-family: var(--font-mono); font-size: 10px; color: var(--color-body); }
+
+    /* ─── Swatch Cards (brand palette) ─── */
+    .swatch-card-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
+    .swatch-card-grid-5 { display: grid; grid-template-columns: repeat(5,1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
+    .swatch-card-row  { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+    @media (max-width: 900px) { .swatch-card-grid, .swatch-card-grid-5 { grid-template-columns: repeat(3,1fr); } }
+    @media (max-width: 560px) { .swatch-card-grid, .swatch-card-grid-5, .swatch-card-row { grid-template-columns: 1fr; } }
+    .swatch-card { border: 1px solid var(--color-hairline); border-radius: 4px; overflow: hidden; background: #fff; }
+    .swatch-card-color { aspect-ratio: 16/9; width: 100%; }
+    .swatch-card-info  { padding: 16px; }
+    .swatch-card-name  { font-family: var(--font-sans); font-size: 15px; font-weight: 500; color: var(--color-ink); margin-bottom: 4px; letter-spacing: -0.15px; }
+    .swatch-card-hex   { font-family: var(--font-mono); font-size: 11px; color: var(--color-body); margin-bottom: 6px; }
+    .swatch-card-desc  { font-family: var(--font-sans); font-size: 13px; color: var(--color-body); line-height: 1.5; }
 
     /* ─── Type specimens ─── */
-    .type-row { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--color-border); }
+    .type-row { display: flex; flex-direction: column; gap: 6px; padding: 24px 0; border-bottom: 1px solid var(--color-hairline); }
     .type-row:last-child { border-bottom: none; }
-    .type-meta { display: flex; gap: 2rem; }
-    .type-meta span { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-body); }
+    .type-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+    .type-meta span { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-body); }
 
     /* ─── Table ─── */
     table { width: 100%; border-collapse: collapse; }
-    th { background: #f0f0f0; padding: 0.75rem 1rem; text-align: left; }
-    td { padding: 0.875rem 1rem; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; color: var(--color-body); }
-    td:first-child { color: var(--color-fg); }
+    thead tr { background: var(--color-hairline); }
+    th { padding: 12px 16px; text-align: left; }
+    td { padding: 14px 16px; border-bottom: 1px solid var(--color-hairline); color: var(--color-body); }
+    td:first-child { color: var(--color-ink); }
 
     /* ─── Hero band ─── */
-    .hero-band {
-      background: var(--color-canvas-dark);
-      padding: 5rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
+    .hero-band { background: var(--color-canvas-dark); padding: 80px 0; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
     @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; } }
-    .gradient-mesh {
-      width: 100%;
-      aspect-ratio: 1;
-      position: relative;
-      filter: blur(40px);
-    }
-    .mesh-a {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 40% 50%, rgba(146,89,253,0.7) 0%, transparent 70%);
-    }
-    .mesh-b {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 65% 40%, rgba(56,189,248,0.5) 0%, transparent 65%);
-    }
+    .gradient-mesh { width: 100%; aspect-ratio: 1; position: relative; filter: blur(40px); }
+    .mesh-a { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 55%, rgba(146,89,253,0.75) 0%, transparent 65%); }
+    .mesh-b { position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(239,92,193,0.65) 0%, transparent 60%); }
+    .mesh-c { position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 65%, rgba(252,76,2,0.6) 0%, transparent 55%); }
 
     /* ─── Nav preview ─── */
-    .nav-preview {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 1.5rem;
-      border: 1px solid var(--color-border);
-      border-radius: 4px;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(8px);
-    }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-link { text-decoration: none; color: var(--color-fg); }
-
-    /* ─── Elevation showcase ─── */
-    .elevation-row { display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start; }
-    .elevation-item { flex: 1; min-width: 160px; }
-    .modal-preview { background: #fff; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); padding: 1.5rem; }
-    .tooltip-preview { background: var(--color-fg); color: #fff; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 0.5rem 0.75rem; display: inline-block; }
+    .nav-preview { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; border: 1px solid var(--color-hairline); border-radius: 4px; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-link { text-decoration: none; color: var(--color-ink); }
 
     /* ─── Spacing ruler ─── */
-    .spacing-row { display: flex; flex-direction: column; gap: 0.5rem; }
-    .spacing-item { display: flex; align-items: center; gap: 1rem; }
-    .spacing-bar { background: var(--color-brand); height: 1rem; border-radius: 2px; opacity: 0.7; }
-    .spacing-label { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-body); min-width: 120px; }
+    .spacing-row { display: flex; flex-direction: column; gap: 8px; }
+    .spacing-item { display: flex; align-items: center; gap: 16px; }
+    .spacing-bar { background: var(--color-primary); height: 12px; border-radius: 2px; opacity: 0.7; }
+    .spacing-label { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-body); min-width: 160px; }
 
-    /* ─── Wordmark footer ─── */
-    .wordmark-banner {
-      border-top: 1px solid var(--color-border);
-      overflow: hidden;
-    }
-    .wordmark-text {
-      font-family: var(--font-sans);
-      font-weight: 500;
-      color: var(--color-border);
-      white-space: nowrap;
-      line-height: 1;
-      padding: 1rem 1.5rem;
-      font-size: clamp(4rem, 12vw, 10rem);
-    }
+    /* ─── Border radius examples ─── */
+    .radius-row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .radius-item { text-align: center; }
+    .radius-box { width: 80px; height: 56px; background: var(--color-hairline); display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
 
-    /* ─── TOC nav ─── */
-    .toc {
-      position: fixed;
-      top: 0; left: 0;
-      width: 200px;
-      height: 100vh;
-      background: var(--color-bg);
-      border-right: 1px solid var(--color-border);
-      padding: 1.5rem 1rem;
-      overflow-y: auto;
-      z-index: 100;
-    }
-    .toc-title { font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-brand); margin-bottom: 1rem; }
-    .toc a { display: block; font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-body); text-decoration: none; padding: 0.3rem 0; }
-    .toc a:hover { color: var(--color-fg); }
-    .main-content { margin-left: 200px; }
+    /* ─── Elevation ─── */
+    .elevation-row { display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start; }
+    .elevation-item { flex: 1; min-width: 160px; }
+    .elev-0 { background: #fff; border-radius: 4px; padding: 24px; }
+    .elev-1 { background: #fff; border: 1px solid var(--color-hairline); border-radius: 4px; padding: 24px; }
+    .elev-2 { background: var(--color-canvas-dark); border: 1px solid var(--color-hairline-dark); border-radius: 4px; padding: 24px; }
+    .elev-3 { background: #fff; border-radius: 4px; padding: 24px; box-shadow: 0 4px 24px rgba(1,1,37,0.18); }
+
+    /* ─── Form elements ─── */
+    .input-label { display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.055em; text-transform: uppercase; color: var(--color-body); margin-bottom: 8px; }
+    .input-field { width: 100%; background: var(--color-canvas); border: 1px solid rgba(0,0,0,0.12); border-radius: 4px; padding: 10px 14px; font-family: var(--font-sans); font-size: 16px; color: var(--color-ink); outline: none; transition: border-color 0.1s; appearance: none; }
+    .input-field::placeholder { color: var(--color-body); }
+    .input-field:focus { border-color: var(--color-ink); }
+    .input-field.input-error { border-color: var(--color-danger); }
+    .input-helper { font-size: 14px; line-height: 1.4; color: var(--color-body); margin-top: 6px; }
+    .input-helper-error { color: var(--color-danger) !important; }
+    .form-group { display: flex; flex-direction: column; }
+
+    /* ─── Stat tiles ─── */
+    .stat-tile-mint   { background: var(--color-accent-mint); border-radius: 4px; padding: 32px; }
+    .stat-tile-violet { background: var(--color-tint-violet); border-radius: 4px; padding: 32px; }
+    .stat-tile-peach  { background: var(--color-tint-peach); border-radius: 4px; padding: 32px; }
+
+    /* ─── Feature tabs ─── */
+    .feature-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+    .feature-tab { padding: 8px 16px; border-radius: 8px; cursor: pointer; border: none; background: transparent; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.055em; text-transform: uppercase; color: var(--color-ink); }
+    .feature-tab.active { background: var(--color-ink); color: #fff; }
+    .feature-tab:not(.active):hover { background: var(--color-hairline); }
+
+    /* ─── Pricing sub-tabs ─── */
+    .pricing-tabs { display: inline-flex; border: 1px solid var(--color-hairline); border-radius: 3.25px; overflow: hidden; }
+    .pricing-tab { padding: 8px 16px; border: none; background: transparent; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.055em; text-transform: uppercase; color: var(--color-ink); cursor: pointer; border-right: 1px solid var(--color-hairline); }
+    .pricing-tab:last-child { border-right: none; }
+
+    /* ─── Toggle pill ─── */
+    .toggle-group { display: inline-flex; background: var(--color-hairline); border-radius: 8px; padding: 2px; gap: 2px; }
+    .toggle-pill { padding: 8px 20px; border: none; border-radius: 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.055em; text-transform: uppercase; cursor: pointer; background: transparent; color: var(--color-ink); }
+    .toggle-pill.active { background: var(--color-ink); color: #fff; }
+
+    /* ─── Code mockup ─── */
+    .code-mockup { background: #0C0C1A; border-radius: 4px; padding: 24px; font-family: var(--font-mono); font-size: 12px; line-height: 20px; color: rgba(255,255,255,0.6); position: relative; overflow: hidden; }
+    .code-highlight { color: rgba(255,255,255,0.9); }
+    .code-comment { color: rgba(255,255,255,0.35); }
+    .code-gradient-strip { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--brand-gradient); }
+
+    /* ─── Pricing cards ─── */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .pricing-card { border-radius: 4px; padding: 24px; }
+    .pricing-card-light { background: #fff; border: 1px solid var(--color-hairline); }
+    .pricing-card-dark  { background: var(--color-canvas-dark); }
+    .pricing-feature { display: flex; align-items: center; gap: 8px; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-size: 15px; color: var(--color-ink); }
+    .pricing-feature-dark { border-color: rgba(255,255,255,0.08); color: #fff; }
+    .pricing-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); flex-shrink: 0; }
+    @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+    /* ─── Wordmark ─── */
+    .wordmark-banner { border-top: 1px solid var(--color-hairline); overflow: hidden; }
+    .wordmark-text { font-family: var(--font-sans); font-weight: 500; color: var(--color-hairline); white-space: nowrap; line-height: 1; padding: 16px 24px; font-size: clamp(4rem,12vw,10rem); }
+
+    /* ─── TOC ─── */
+    .toc { position: fixed; top: 0; left: 0; width: 210px; height: 100vh; background: var(--color-canvas); border-right: 1px solid var(--color-hairline); padding: 24px 16px; overflow-y: auto; z-index: 100; }
+    .toc-title { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.055em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 16px; }
+    .toc a { display: block; font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-body); text-decoration: none; padding: 4px 0; }
+    .toc a:hover { color: var(--color-ink); }
+    .main-content { margin-left: 210px; }
     @media (max-width: 768px) { .toc { display: none; } .main-content { margin-left: 0; } }
   </style>
 </head>
@@ -214,300 +253,801 @@
 <!-- TOC -->
 <nav class="toc">
   <p class="toc-title">SME24 DS</p>
-  <a href="#colors">Colors</a>
-  <a href="#typography">Typography</a>
-  <a href="#buttons">Buttons</a>
-  <a href="#badges">Badges</a>
-  <a href="#cards">Cards</a>
-  <a href="#elevation">Elevation</a>
-  <a href="#spacing">Spacing</a>
-  <a href="#nav">Nav</a>
-  <a href="#hero">Hero Band</a>
-  <a href="#table">Table</a>
-  <a href="#gradient">Gradient</a>
-  <a href="#wordmark">Wordmark</a>
+  <a href="#colors">01 Colors</a>
+  <a href="#typography">02 Typography</a>
+  <a href="#buttons">03 Buttons</a>
+  <a href="#cards">04 Cards</a>
+  <a href="#forms">05 Forms</a>
+  <a href="#spacing">06 Spacing</a>
+  <a href="#radius">07 Radius</a>
+  <a href="#elevation">08 Elevation</a>
+  <a href="#signature">09 Signature</a>
+  <a href="#gradient">10 Gradient</a>
+  <a href="#responsive">11 Responsive</a>
+  <a href="#pricing">12 Pricing Tiers</a>
+  <a href="#nav">13 Nav</a>
+  <a href="#hero">14 Hero Band</a>
+  <a href="#table">15 Table</a>
+  <a href="#stat-tiles">16 Stat Tiles</a>
+  <a href="#wordmark">17 Wordmark</a>
 </nav>
 
 <div class="main-content">
 
-  <!-- ── Page header ── -->
-  <div style="background:var(--color-canvas-dark); padding: 4rem 0 3rem;">
+  <!-- Page header -->
+  <div style="background:var(--color-canvas); padding:80px 0; border-bottom:1px solid var(--color-hairline);">
     <div class="container">
-      <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:1rem;">Design System</p>
-      <h1 class="type-display-hero" style="color:#fff; max-width:600px;">SME24 component reference</h1>
-      <p class="type-body-lg" style="color:rgba(255,255,255,0.5); margin-top:1rem; max-width:480px;">
-        Canonical tokens, type scale, and components for the SME24 EHS intelligence platform.
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:24px;">/ Design System / Catalog</p>
+      <h1 class="type-display-xxl" style="color:var(--color-ink); max-width:700px; margin-bottom:20px;">SME24 Design System</h1>
+      <p class="type-body-lg" style="color:var(--color-body); max-width:520px; margin-bottom:32px;">
+        An inspired interpretation of Together AI's design language — adapted for the SME24 EHS intelligence platform. Blueprint-style, technically precise, narratively confident.
       </p>
+      <div class="btn-group">
+        <button class="btn btn-primary">Get started now</button>
+        <button class="btn btn-outline">Contact sales</button>
+      </div>
     </div>
   </div>
 
-  <!-- ── Colors ── -->
+  <!-- ── 01 Color Palette ── -->
   <section class="section-light" id="colors">
     <div class="container">
-      <p class="ds-section-label">01 — Colors</p>
+      <p class="ds-section-label">/ 01 / Color Palette</p>
 
-      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1.5rem;">Light surface tokens</p>
-      <div class="swatch-row" style="margin-bottom:3rem;">
-        <div class="swatch"><div class="swatch-box" style="background:#ffffff; border:1px solid #e4e4e7;"></div><p class="swatch-name">BG</p><p class="swatch-value">#ffffff</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#f6f6f6;"></div><p class="swatch-name">Surface</p><p class="swatch-value">#f6f6f6</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#0e0e0e;"></div><p class="swatch-name">FG</p><p class="swatch-value">#0e0e0e</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#6b6b6b;"></div><p class="swatch-name">Body</p><p class="swatch-value">#6b6b6b</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#e4e4e7;"></div><p class="swatch-name">Border</p><p class="swatch-value">#e4e4e7</p></div>
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:20px;">/ Brand &amp; Accent</p>
+      <div class="swatch-card-grid" style="margin-bottom:48px;">
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#000000;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Ink Black</p>
+            <p class="swatch-card-hex">#000000</p>
+            <p class="swatch-card-desc">Headings &amp; text on light surfaces.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#CB3CFF;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Brand Violet</p>
+            <p class="swatch-card-hex">#CB3CFF</p>
+            <p class="swatch-card-desc">Primary CTA fill. First stop of the brand gradient.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#EF5CC1;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Brand Magenta</p>
+            <p class="swatch-card-hex">#EF5CC1</p>
+            <p class="swatch-card-desc">Middle stop of the brand gradient.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#FC4C02;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Brand Orange</p>
+            <p class="swatch-card-hex">#FC4C02</p>
+            <p class="swatch-card-desc">Tertiary accent. Last stop of the brand gradient.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#CBF6F9; border-bottom:1px solid var(--color-hairline);"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Brand Mint</p>
+            <p class="swatch-card-hex">#CBF6F9</p>
+            <p class="swatch-card-desc">Hero secondary CTA + tinted stat tiles.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#E8DDFF; border-bottom:1px solid var(--color-hairline);"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Tint Violet</p>
+            <p class="swatch-card-hex">#E8DDFF</p>
+            <p class="swatch-card-desc">Stat tiles — violet tint variant.</p>
+          </div>
+        </div>
       </div>
 
-      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1.5rem;">Dark surface tokens</p>
-      <div class="swatch-row" style="margin-bottom:3rem;">
-        <div class="swatch"><div class="swatch-box" style="background:#070719;"></div><p class="swatch-name">Canvas</p><p class="swatch-value">#070719</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#13132b;"></div><p class="swatch-name">Surf Dark</p><p class="swatch-value">#13132b</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#2a2a4a;"></div><p class="swatch-name">Hairline</p><p class="swatch-value">#2a2a4a</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#ffffff; border:1px solid #e4e4e7;"></div><p class="swatch-name">On Dark</p><p class="swatch-value">#ffffff</p></div>
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:20px;">/ Surface</p>
+      <div class="swatch-card-grid" style="margin-bottom:48px;">
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#F7F7F9; border-bottom:1px solid var(--color-hairline);"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Canvas</p>
+            <p class="swatch-card-hex">#F7F7F9</p>
+            <p class="swatch-card-desc">Default page background.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#E8E8E8;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Hairline / Canvas Soft</p>
+            <p class="swatch-card-hex">#E8E8E8</p>
+            <p class="swatch-card-desc">Card borders, dividers, soft backgrounds.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#111111;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Canvas Dark</p>
+            <p class="swatch-card-hex">#111111</p>
+            <p class="swatch-card-desc">Hero band + dark section background.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#26263A;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Hairline On Dark</p>
+            <p class="swatch-card-hex">#26263A</p>
+            <p class="swatch-card-desc">Dividers on canvas-dark surfaces.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#313641;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Surface Dark Soft</p>
+            <p class="swatch-card-hex">#313641</p>
+            <p class="swatch-card-desc">Inner dark cards + ghost buttons.</p>
+          </div>
+        </div>
       </div>
 
-      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1.5rem;">Brand & status</p>
-      <div class="swatch-row">
-        <div class="swatch"><div class="swatch-box" style="background:#9259fd;"></div><p class="swatch-name">Brand</p><p class="swatch-value">#9259fd</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#38bdf8;"></div><p class="swatch-name">Teal</p><p class="swatch-value">#38bdf8</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:linear-gradient(135deg,#9259fd,#38bdf8);"></div><p class="swatch-name">Gradient</p><p class="swatch-value">135deg</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#16a34a;"></div><p class="swatch-name">Success</p><p class="swatch-value">#16a34a</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#f59e0b;"></div><p class="swatch-name">Warning</p><p class="swatch-value">#f59e0b</p></div>
-        <div class="swatch"><div class="swatch-box" style="background:#dc2626;"></div><p class="swatch-name">Danger</p><p class="swatch-value">#dc2626</p></div>
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:20px;">/ Text</p>
+      <div class="swatch-card-grid" style="margin-bottom:48px;">
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#000000;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Ink</p>
+            <p class="swatch-card-hex">#000000</p>
+            <p class="swatch-card-desc">Headings + body text on light.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#959494;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Body</p>
+            <p class="swatch-card-hex">#959494</p>
+            <p class="swatch-card-desc">Secondary text, captions, eyebrows.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#F7F7F9; border-bottom:1px solid var(--color-hairline);"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">On Dark</p>
+            <p class="swatch-card-hex">#F7F7F9</p>
+            <p class="swatch-card-desc">All text on canvas-dark surfaces.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:20px;">/ Tinted Stat Tiles</p>
+      <div class="swatch-card-grid" style="margin-bottom:48px;">
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#CBF6F9;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Mint</p>
+            <p class="swatch-card-hex">#CBF6F9</p>
+            <p class="swatch-card-desc">Stat tile + hero secondary CTA fill.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#E8DDFF;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Violet</p>
+            <p class="swatch-card-hex">#E8DDFF</p>
+            <p class="swatch-card-desc">Stat tile — violet tint variant.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#FFE5D3;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Peach</p>
+            <p class="swatch-card-hex">#FFE5D3</p>
+            <p class="swatch-card-desc">Stat tile — warm peach variant.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:20px;">/ Semantic Status</p>
+      <div class="swatch-card-grid">
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#16A34A;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Success</p>
+            <p class="swatch-card-hex">#16A34A</p>
+            <p class="swatch-card-desc">Confirmed actions, passing states.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#F59E0B;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Warning</p>
+            <p class="swatch-card-hex">#F59E0B</p>
+            <p class="swatch-card-desc">Caution states, review required.</p>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-card-color" style="background:#DC2626;"></div>
+          <div class="swatch-card-info">
+            <p class="swatch-card-name">Danger</p>
+            <p class="swatch-card-hex">#DC2626</p>
+            <p class="swatch-card-desc">Errors, destructive actions.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Typography ── -->
-  <section style="background:var(--color-surface); padding:5rem 0;" id="typography">
+  <!-- ── 02 Typography ── -->
+  <section class="section-soft" id="typography">
     <div class="container">
-      <p class="ds-section-label">02 — Typography</p>
+      <p class="ds-section-label">/ 02 / Typography Scale</p>
+      <p class="type-body-lg" style="color:var(--color-body); max-width:600px; margin-bottom:48px;">
+        Two faces: Urbanist for headlines, lead paragraphs, body, and inline links; PP Neue Montreal Mono for every section label, button, and table-header cell. Sentence-case for the display; uppercase for the mono.
+      </p>
 
-      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:2rem;">Inter — display scale</p>
-      <div style="margin-bottom:3rem;">
+      <!-- Display scale -->
+      <div style="margin-bottom:48px;">
         <div class="type-row">
-          <span class="type-display-hero">Display hero — 64px / −0.03em</span>
-          <div class="type-meta"><span>Inter 500</span><span>4rem</span><span>lh 1.1</span><span>ls −0.03em</span><span>.type-display-hero</span></div>
+          <span class="type-display-xxl">Build what's next.</span>
+          <div class="type-meta"><span>Display-XXL</span><span>64 / 500</span><span>70.4</span><span>−1.92</span></div>
         </div>
         <div class="type-row">
-          <span class="type-display-section">Display section — 40px / −0.02em</span>
-          <div class="type-meta"><span>Inter 500</span><span>2.5rem</span><span>lh 1.2</span><span>ls −0.02em</span><span>.type-display-section</span></div>
+          <span class="type-display-xl">The SME24 Platform</span>
+          <div class="type-meta"><span>Display-XL</span><span>40 / 500</span><span>48</span><span>−0.8</span></div>
         </div>
         <div class="type-row">
-          <span class="type-display-sub">Display sub — 28px / −0.015em</span>
-          <div class="type-meta"><span>Inter 500</span><span>1.75rem</span><span>lh 1.15</span><span>ls −0.015em</span><span>.type-display-sub</span></div>
+          <span class="type-display-lg">Sub-section headline.</span>
+          <div class="type-meta"><span>Display-LG</span><span>28 / 500</span><span>32.2</span><span>−0.42</span></div>
         </div>
         <div class="type-row">
-          <span class="type-display-card">Display card — 22px / −0.01em</span>
-          <div class="type-meta"><span>Inter 500</span><span>1.375rem</span><span>lh 1.15</span><span>ls −0.01em</span><span>.type-display-card</span></div>
+          <span class="type-display-md">Card title example.</span>
+          <div class="type-meta"><span>Display-MD</span><span>22 / 500</span><span>25.3</span><span>−0.22</span></div>
         </div>
         <div class="type-row">
-          <span class="type-body-lg">Body large — 18px. Lead paragraph copy runs here under section headlines.</span>
-          <div class="type-meta"><span>Inter 400</span><span>1.125rem</span><span>lh 1.3</span><span>ls −0.01em</span><span>.type-body-lg</span></div>
+          <span class="type-body-lg">Lead paragraph under a section headline. Long-form prose sits in the display sans at 400 weight.</span>
+          <div class="type-meta"><span>Body-LG</span><span>18 / 400</span><span>23.4</span><span>−0.18</span></div>
         </div>
         <div class="type-row">
-          <span class="type-body-md">Body medium — 16px. Default body text for most prose and UI descriptions in the platform.</span>
-          <div class="type-meta"><span>Inter 400</span><span>1rem</span><span>lh 1.5</span><span>ls −0.01em</span><span>.type-body-md</span></div>
+          <span class="type-body-lg-strong">Emphasis runs inside lead paragraphs.</span>
+          <div class="type-meta"><span>Body-LG-Strong</span><span>18 / 500</span><span>23.4</span><span>−0.18</span></div>
         </div>
         <div class="type-row">
-          <span class="type-caption">Caption — 14px. Fine print, secondary captions, helper text, footnotes.</span>
-          <div class="type-meta"><span>Inter 400</span><span>0.875rem</span><span>lh 1.4</span><span>ls 0</span><span>.type-caption</span></div>
+          <span class="type-body-md">Default body paragraph for product, pricing, docs.</span>
+          <div class="type-meta"><span>Body-MD</span><span>16 / 400</span><span>20.8</span><span>−0.16</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-body-md-strong">Bolded inline body text.</span>
+          <div class="type-meta"><span>Body-MD-Strong</span><span>16 / 500</span><span>20.8</span><span>−0.16</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-caption">Fine print, footer secondary text.</span>
+          <div class="type-meta"><span>Caption</span><span>14 / 400</span><span>19.6</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-caption-strong">Bolded caption emphasis.</span>
+          <div class="type-meta"><span>Caption-Strong</span><span>14 / 500</span><span>19.6</span></div>
         </div>
       </div>
 
-      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:2rem;">JetBrains Mono — label scale (uppercase only)</p>
+      <!-- Mono scale -->
       <div>
         <div class="type-row">
-          <span class="type-mono-eyebrow" style="color:var(--color-fg); font-size:0.875rem;">Mono eyebrow — section labels, table headers</span>
-          <div class="type-meta"><span>Mono 500</span><span>0.6875rem</span><span>lh 1</span><span>ls 0.05em</span><span>.type-mono-eyebrow</span></div>
+          <span class="type-mono-button" style="color:var(--color-ink);">Get started now</span>
+          <div class="type-meta"><span>Mono-Caps-Button</span><span>14 / 500</span><span>14</span><span>0.08</span></div>
         </div>
         <div class="type-row">
-          <span class="type-mono-button" style="color:var(--color-fg); font-size:1rem;">Mono button — all button labels</span>
-          <div class="type-meta"><span>Mono 500</span><span>0.8125rem</span><span>lh 1</span><span>ls 0.06em</span><span>.type-mono-button</span></div>
+          <span class="type-mono-eyebrow" style="color:var(--color-body);">/ Inference / Pricing</span>
+          <div class="type-meta"><span>Mono-Caps-Eyebrow</span><span>11 / 500</span><span>11</span><span>0.55</span></div>
         </div>
         <div class="type-row">
-          <span class="type-mono-label" style="color:var(--color-fg); font-size:0.875rem;">Mono label — badge text, tag pills, pricing row labels</span>
-          <div class="type-meta"><span>Mono 500</span><span>0.6875rem</span><span>lh 1.4</span><span>ls 0.05em</span><span>.type-mono-label</span></div>
+          <span class="type-mono-label" style="color:var(--color-ink);">Inline tag labels inside text contexts.</span>
+          <div class="type-meta"><span>Mono-Caps-Label</span><span>11 / 500</span><span>15.4</span><span>0.055</span></div>
+        </div>
+        <div class="type-row">
+          <span class="type-mono-caption" style="color:var(--color-body);">Mono fine print used inside the code-editor mockup.</span>
+          <div class="type-meta"><span>Mono-Caption</span><span>10 / 400</span><span>14</span><span>0.05</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Buttons ── -->
+  <!-- ── 03 Button Variants ── -->
   <section class="section-light" id="buttons">
     <div class="container">
-      <p class="ds-section-label">03 — Buttons</p>
-      <div style="display:flex; flex-direction:column; gap:3rem;">
+      <p class="ds-section-label">/ 03 / Button Variants</p>
+      <p class="type-body-md" style="color:var(--color-body); max-width:580px; margin-bottom:48px;">
+        One ink-black 4px-rounded rectangle carries every primary CTA. The mint and white pills are reserved for hero contexts; the ghost-on-dark and outline variants handle dark-band and form contexts respectively. The circular orb is the only fully-pill shape in the system.
+      </p>
 
-        <div>
-          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1rem;">Light surface</p>
-          <div class="btn-group">
-            <button class="btn btn-primary-light type-mono-button">Start assessment</button>
-            <button class="btn btn-outline type-mono-button">Explore packages</button>
+      <div class="grid-4">
+        <!-- Primary -->
+        <div style="border:1px solid var(--color-hairline); border-radius:4px; padding:24px; display:flex; flex-direction:column; gap:20px;">
+          <p class="type-mono-label" style="color:var(--color-body);">Button-Primary</p>
+          <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+            <button class="btn btn-primary">Get started now</button>
           </div>
+          <p class="type-mono-caption" style="color:var(--color-body);">Violet fill (--color-primary) / on-primary text / mono-caps-button label / radius 4 px.</p>
         </div>
 
-        <div style="background:var(--color-canvas-dark); padding:2rem; border-radius:4px;">
-          <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:1rem;">Dark surface</p>
-          <div class="btn-group">
-            <button class="btn btn-primary-dark type-mono-button">Start assessment</button>
-            <button class="btn btn-secondary-dark type-mono-button">Explore packages</button>
+        <!-- Secondary Mint -->
+        <div style="border:1px solid var(--color-hairline); border-radius:4px; padding:24px; display:flex; flex-direction:column; gap:20px;">
+          <p class="type-mono-label" style="color:var(--color-body);">Button-Secondary-Mint</p>
+          <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+            <button class="btn btn-mint">Watch the announcement</button>
           </div>
+          <p class="type-mono-caption" style="color:var(--color-body);">Mint fill / ink text / hero-only secondary.</p>
         </div>
 
-        <div>
-          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1rem;">Sizes</p>
-          <div class="btn-group" style="align-items:center;">
-            <button class="btn btn-primary-light type-mono-button" style="padding:0.5rem 1rem; font-size:0.6875rem;">Small</button>
-            <button class="btn btn-primary-light type-mono-button">Default</button>
-            <button class="btn btn-primary-light type-mono-button" style="padding:0.875rem 2rem; font-size:0.875rem;">Large</button>
+        <!-- Secondary White (dark card) -->
+        <div style="background:var(--color-canvas-dark); border-radius:4px; padding:24px; display:flex; flex-direction:column; gap:20px;">
+          <p class="type-mono-label" style="color:var(--color-body);">Button-Secondary-White</p>
+          <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+            <button class="btn btn-white">Read the docs</button>
           </div>
+          <p class="type-mono-caption" style="color:rgba(255,255,255,0.35);">White fill / ink text / hero-only adjacent CTA.</p>
+        </div>
+
+        <!-- Ghost on dark (dark card) -->
+        <div style="background:var(--color-canvas-dark); border-radius:4px; padding:24px; display:flex; flex-direction:column; gap:20px;">
+          <p class="type-mono-label" style="color:var(--color-body);">Button-Ghost-On-Dark</p>
+          <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+            <button class="btn btn-ghost-dark">Read more</button>
+          </div>
+          <p class="type-mono-caption" style="color:rgba(255,255,255,0.35);">Surface-dark-soft fill / on-dark text / dark-band use only.</p>
+        </div>
+
+        <!-- Outline -->
+        <div style="border:1px solid var(--color-hairline); border-radius:4px; padding:24px; display:flex; flex-direction:column; gap:20px;">
+          <p class="type-mono-label" style="color:var(--color-body);">Button-Outline</p>
+          <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+            <button class="btn btn-outline">Filter results</button>
+          </div>
+          <p class="type-mono-caption" style="color:var(--color-body);">Canvas fill / 1 px hairline border / radius 3.25 px (tighter than canonical).</p>
+        </div>
+
+        <!-- Icon circular -->
+        <div style="border:1px solid var(--color-hairline); border-radius:4px; padding:24px; display:flex; flex-direction:column; gap:20px;">
+          <p class="type-mono-label" style="color:var(--color-body);">Button-Icon-Circular</p>
+          <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+            <button class="btn btn-icon-circle" style="font-size:18px;" aria-label="Open chat">●</button>
+          </div>
+          <p class="type-mono-caption" style="color:var(--color-body);">Floating chat-launcher orb — the only fully-pill shape in the system.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Badges ── -->
-  <section style="background:var(--color-surface); padding:5rem 0;" id="badges">
+  <!-- ── 04 Cards & Containers ── -->
+  <section class="section-soft" id="cards">
     <div class="container">
-      <p class="ds-section-label">04 — Badges</p>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; margin-bottom:2rem;">
-        <span class="badge badge-light type-mono-label">ISO 45001</span>
-        <span class="badge badge-light type-mono-label">EHS Snapshot</span>
-        <span class="badge badge-brand type-mono-label">AI Research</span>
-        <span class="badge badge-brand type-mono-label" style="background:rgba(22,163,74,0.1); color:#16a34a; border-color:rgba(22,163,74,0.2);">Verified</span>
-        <span class="badge badge-brand type-mono-label" style="background:rgba(245,158,11,0.1); color:#f59e0b; border-color:rgba(245,158,11,0.2);">Pending</span>
-        <span class="badge badge-brand type-mono-label" style="background:rgba(220,38,38,0.1); color:#dc2626; border-color:rgba(220,38,38,0.2);">Inactive</span>
-      </div>
-      <div style="background:var(--color-canvas-dark); padding:1.5rem; border-radius:4px; display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
-        <span class="badge badge-dark type-mono-label">ISO 45001</span>
-        <span class="badge badge-dark type-mono-label">REACH Compliance</span>
-        <span class="badge type-mono-label" style="background:rgba(146,89,253,0.2); color:#9259fd; border-radius:4px; padding:0.125rem 0.5rem;">AI Match</span>
-      </div>
-    </div>
-  </section>
+      <p class="ds-section-label">/ 04 / Cards &amp; Containers</p>
+      <p class="type-body-md" style="color:var(--color-body); max-width:580px; margin-bottom:48px;">
+        Universally lightly rounded at 4px with hairline borders. Surface contrast does most of the elevation work — dark cards live on dark bands; light cards live on light bands. Soft shadows belong only to the floating chat-launcher orb.
+      </p>
 
-  <!-- ── Cards ── -->
-  <section class="section-light" id="cards">
-    <div class="container">
-      <p class="ds-section-label">05 — Cards</p>
-
-      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1.5rem;">Light surface</p>
-      <div class="grid-3" style="margin-bottom:3rem;">
-        <div class="card-light">
-          <p class="type-mono-label" style="color:var(--color-body); margin-bottom:0.75rem;">EHS Snapshot</p>
-          <h3 class="type-display-card" style="color:var(--color-fg); margin-bottom:0.5rem;">Risk assessment complete</h3>
-          <p class="type-body-md" style="color:var(--color-body);">ISO 45001 gap analysis delivered within 48 hours of intake.</p>
-        </div>
-        <div class="card-light">
-          <p class="type-mono-label" style="color:var(--color-body); margin-bottom:0.75rem;">Expert match</p>
-          <h3 class="type-display-card" style="color:var(--color-fg); margin-bottom:0.5rem;">3 experts shortlisted</h3>
-          <p class="type-body-md" style="color:var(--color-body);">AI benchmarking scored 47 profiles. Top three forwarded for review.</p>
-        </div>
-        <div class="card-light">
-          <p class="type-mono-label" style="color:var(--color-body); margin-bottom:0.75rem;">Proposal ready</p>
-          <h3 class="type-display-card" style="color:var(--color-fg); margin-bottom:0.5rem;">Scope delivered</h3>
-          <p class="type-body-md" style="color:var(--color-body);">Structured proposal with timeline, deliverables, and fixed price.</p>
-        </div>
-      </div>
-
-      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1.5rem;">Dark surface</p>
-      <div style="background:var(--color-canvas-dark); padding:2rem; border-radius:4px;">
-        <div class="grid-3">
-          <div class="card-dark">
-            <p class="type-mono-label" style="color:var(--color-brand); margin-bottom:0.75rem;">ISO 45001</p>
-            <h3 class="type-display-card" style="color:#fff; margin-bottom:0.5rem;">Occupational safety</h3>
-            <p class="type-body-md" style="color:rgba(255,255,255,0.6);">OHSMS gap analysis and implementation roadmap.</p>
-          </div>
-          <div class="card-dark">
-            <p class="type-mono-label" style="color:var(--color-brand); margin-bottom:0.75rem;">REACH</p>
-            <h3 class="type-display-card" style="color:#fff; margin-bottom:0.5rem;">Chemical compliance</h3>
-            <p class="type-body-md" style="color:rgba(255,255,255,0.6);">SVHC screening and substance registration support.</p>
-          </div>
-          <div class="card-dark">
-            <p class="type-mono-label" style="color:var(--color-brand); margin-bottom:0.75rem;">ESG Reporting</p>
-            <h3 class="type-display-card" style="color:#fff; margin-bottom:0.5rem;">Disclosure readiness</h3>
-            <p class="type-body-md" style="color:rgba(255,255,255,0.6);">GRI and CSRD alignment with materiality assessment.</p>
+      <div class="grid-3" style="margin-bottom:48px; align-items:start;">
+        <!-- Research card dark -->
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <p class="type-mono-label" style="color:var(--color-body);">Research-Card (Dark)</p>
+          <div style="background:var(--color-canvas-dark); border:1px solid var(--color-hairline-dark); border-radius:4px; padding:24px;">
+            <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:16px;">/ Inference Research</p>
+            <h3 class="type-display-md" style="color:#fff; margin-bottom:12px;">Speculative decoding at scale.</h3>
+            <p class="type-body-md" style="color:rgba(255,255,255,0.55);">A note on serving long-context models with parallel speculative draft passes — placeholder body copy mirrors the brand's research-card chrome.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ── Elevation ── -->
-  <section style="background:var(--color-surface); padding:5rem 0;" id="elevation">
-    <div class="container">
-      <p class="ds-section-label">06 — Elevation</p>
-      <div class="elevation-row">
-        <div class="elevation-item">
-          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1rem;">Card light</p>
+        <!-- Testimonial card light -->
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <p class="type-mono-label" style="color:var(--color-body);">Testimonial-Card</p>
           <div class="card-light">
-            <p class="type-caption" style="color:var(--color-body);">border + surface contrast. No shadow.</p>
+            <div style="width:40px; height:40px; background:#C5D3F5; border-radius:4px; margin-bottom:16px;"></div>
+            <h3 class="type-display-md" style="color:var(--color-ink); margin-bottom:8px;">Expert A</h3>
+            <p class="type-body-md" style="color:var(--color-body); margin-bottom:16px;">Placeholder quote from an EHS expert about the platform's reliability — the brand keeps testimonial copy short and stat-driven.</p>
+            <p class="type-mono-caption" style="color:var(--color-body);">/ EHS Consultant &nbsp;·&nbsp; Certified 2019</p>
           </div>
         </div>
-        <div class="elevation-item" style="background:var(--color-canvas-dark); padding:1.5rem; border-radius:4px;">
-          <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:1rem;">Card dark</p>
-          <div class="card-dark">
-            <p class="type-caption" style="color:rgba(255,255,255,0.5);">hairline border + surface contrast. No shadow.</p>
+
+        <!-- Article card gradient -->
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <p class="type-mono-label" style="color:var(--color-body);">Article-Card</p>
+          <div style="border-radius:4px; overflow:hidden; border:1px solid var(--color-hairline); display:flex; flex-direction:column;">
+            <div style="height:200px; background:linear-gradient(135deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%);"></div>
+            <div style="padding:24px; background:var(--color-canvas); flex:1;">
+              <p class="type-mono-label" style="color:var(--color-body); margin-bottom:8px;">/ Product Update</p>
+              <h3 class="type-display-md" style="color:var(--color-ink); margin-bottom:8px;">Lower-latency inference is live.</h3>
+              <p class="type-body-md" style="color:var(--color-body); margin-bottom:12px;">A short summary of the latest platform release — placeholder text follows the brand's article-card chrome.</p>
+              <p class="type-mono-caption" style="color:var(--color-body);">/ Author Placeholder &nbsp;·&nbsp; 5 Min Read</p>
+            </div>
           </div>
         </div>
-        <div class="elevation-item">
-          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1rem;">Modal</p>
-          <div class="modal-preview">
-            <p class="type-display-card" style="margin-bottom:0.5rem;">Modal title</p>
-            <p class="type-caption" style="color:var(--color-body);">Only component with shadow-lg. rounded-md (8px).</p>
-          </div>
+      </div>
+
+      <!-- Code editor mockup -->
+      <div class="code-mockup" style="max-width:720px;">
+        <p class="code-comment">// EHS risk scoring pipeline</p>
+        <p class="code-comment">// SME24 uses this surface as a polarity-flip break</p>
+        <p style="margin-top:8px;"><span class="code-highlight">function</span> computeRiskScore(<span class="code-highlight">company</span>) {</p>
+        <p style="padding-left:24px;">return <span class="code-highlight">analyseISO45001</span>(company);</p>
+        <p>}</p>
+        <p style="margin-top:16px;" class="code-comment">// gradient strip acts as a section sign-off</p>
+        <div class="code-gradient-strip"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 Form Elements ── -->
+  <section class="section-light" id="forms">
+    <div class="container">
+      <p class="ds-section-label">/ 05 / Form Elements</p>
+      <p class="type-body-md" style="color:var(--color-body); max-width:580px; margin-bottom:48px;">
+        Inputs sit on canvas with a 1px translucent-black hairline border. Labels are uppercase mono in body-color; helper text drops to caption size. No invented focus color — focus collapses to the ink stroke.
+      </p>
+
+      <div class="grid-3" style="margin-bottom:32px;">
+        <div class="form-group">
+          <label class="input-label">/ Full Name</label>
+          <input class="input-field" type="text" placeholder="Placeholder name" />
         </div>
-        <div class="elevation-item">
-          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:1rem;">Tooltip</p>
-          <div>
-            <div class="tooltip-preview type-mono-label">ISO 45001 gap score: 72%</div>
-          </div>
+        <div class="form-group">
+          <label class="input-label">/ Work Email</label>
+          <input class="input-field" type="email" placeholder="placeholder@example.com" style="border-color:var(--color-ink);" />
+          <p class="input-helper">Focused state — ink-stroke border.</p>
+        </div>
+        <div class="form-group">
+          <label class="input-label">/ Company Size</label>
+          <input class="input-field" type="text" placeholder="Number of employees" />
+        </div>
+      </div>
+
+      <div class="form-group" style="max-width:720px;">
+        <label class="input-label">/ Tell Us About Your Workload</label>
+        <textarea class="input-field" rows="4" placeholder="Placeholder workload description — the brand's startup-accelerator form uses this primitive."></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 06 Spacing Scale ── -->
+  <section class="section-soft" id="spacing">
+    <div class="container">
+      <p class="ds-section-label">/ 06 / Spacing Scale</p>
+      <p class="type-body-md" style="color:var(--color-body); max-width:520px; margin-bottom:48px;">
+        A 4px base with two named outliers (7.2px, 55.2px). Marketing bands use the 80px section token top and bottom; card interiors sit at 24px; stat tiles open to 32px.
+      </p>
+      <div style="display:flex; gap:16px; align-items:flex-end; flex-wrap:wrap;">
+        <div style="text-align:center;"><div style="width:2px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">XXS / 2</p></div>
+        <div style="text-align:center;"><div style="width:4px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">XS / 4</p></div>
+        <div style="text-align:center;"><div style="width:8px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">SM / 8</p></div>
+        <div style="text-align:center;"><div style="width:12px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">MD / 12</p></div>
+        <div style="text-align:center;"><div style="width:16px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">LG / 16</p></div>
+        <div style="text-align:center;"><div style="width:20px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">XL / 20</p></div>
+        <div style="text-align:center;"><div style="width:24px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">2XL / 24</p></div>
+        <div style="text-align:center;"><div style="width:32px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">3XL / 32</p></div>
+        <div style="text-align:center;"><div style="width:44px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">4XL / 44</p></div>
+        <div style="text-align:center;"><div style="width:48px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">5XL / 48</p></div>
+        <div style="text-align:center;"><div style="width:55px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">6XL / 55.2</p></div>
+        <div style="text-align:center;"><div style="width:80px; height:20px; background:var(--color-primary); margin:0 auto 8px;"></div><p class="type-mono-caption" style="color:var(--color-body);">Section / 80</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 07 Border Radius ── -->
+  <section class="section-light" id="radius">
+    <div class="container">
+      <p class="ds-section-label">/ 07 / Border Radius Scale</p>
+      <p class="type-body-md" style="color:var(--color-body); max-width:520px; margin-bottom:48px;">
+        The canonical card/button radius is 4px. A tighter 3.25px appears inside pricing sub-tabs and outline buttons; 8px shows up only inside feature-tab pills. The fully-pill 9999px is reserved for the floating chat-launcher orb.
+      </p>
+      <div class="radius-row">
+        <div class="radius-item"><div class="radius-box" style="border-radius:0;"></div><p class="type-mono-label" style="color:var(--color-body);">None</p><p class="type-mono-caption" style="color:var(--color-body);">0 PX</p></div>
+        <div class="radius-item"><div class="radius-box" style="border-radius:3.25px;"></div><p class="type-mono-label" style="color:var(--color-body);">XS</p><p class="type-mono-caption" style="color:var(--color-body);">3.25 PX</p></div>
+        <div class="radius-item"><div class="radius-box" style="border-radius:4px;"></div><p class="type-mono-label" style="color:var(--color-body);">SM</p><p class="type-mono-caption" style="color:var(--color-body);">4 PX</p></div>
+        <div class="radius-item"><div class="radius-box" style="border-radius:8px;"></div><p class="type-mono-label" style="color:var(--color-body);">MD</p><p class="type-mono-caption" style="color:var(--color-body);">8 PX</p></div>
+        <div class="radius-item"><div class="radius-box" style="border-radius:9999px;"></div><p class="type-mono-label" style="color:var(--color-body);">Full</p><p class="type-mono-caption" style="color:var(--color-body);">9999 PX</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 08 Elevation & Depth ── -->
+  <section class="section-soft" id="elevation">
+    <div class="container">
+      <p class="ds-section-label">/ 08 / Elevation &amp; Depth</p>
+      <p class="type-body-md" style="color:var(--color-body); max-width:520px; margin-bottom:48px;">
+        Most light-surface cards lean on hairlines, not shadow. The single soft-drop shadow tints with the brand's navy ink and applies only to floating affordances.
+      </p>
+      <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+        <div style="flex:1; min-width:160px;">
+          <div class="elev-0" style="min-height:80px; margin-bottom:12px;"></div>
+          <p class="type-mono-label" style="color:var(--color-body);">Level 0</p>
+          <p class="type-mono-caption" style="color:var(--color-body);">Flat</p>
+        </div>
+        <div style="flex:1; min-width:160px;">
+          <div class="elev-1" style="min-height:80px; margin-bottom:12px;"></div>
+          <p class="type-mono-label" style="color:var(--color-body);">Level 1</p>
+          <p class="type-mono-caption" style="color:var(--color-body);">Hairline Border</p>
+        </div>
+        <div style="flex:1; min-width:160px; background:var(--color-canvas-dark); padding:12px; border-radius:4px;">
+          <div class="elev-2" style="min-height:80px; margin-bottom:12px;"></div>
+          <p class="type-mono-label" style="color:var(--color-body);">Level 2</p>
+          <p class="type-mono-caption" style="color:var(--color-body);">Hairline On Dark</p>
+        </div>
+        <div style="flex:1; min-width:160px;">
+          <div class="elev-3" style="min-height:80px; margin-bottom:12px;"></div>
+          <p class="type-mono-label" style="color:var(--color-body);">Level 3</p>
+          <p class="type-mono-caption" style="color:var(--color-body);">Soft Drop (Navy)</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Spacing ── -->
-  <section class="section-light" id="spacing">
+  <!-- ── 09 Signature Components ── -->
+  <section class="section-light" id="signature">
     <div class="container">
-      <p class="ds-section-label">07 — Spacing</p>
-      <div class="spacing-row">
-        <div class="spacing-item"><span class="spacing-label">2 — 8px — icon gap</span><div class="spacing-bar" style="width:8px;"></div></div>
-        <div class="spacing-item"><span class="spacing-label">3 — 12px — nav gap</span><div class="spacing-bar" style="width:12px;"></div></div>
-        <div class="spacing-item"><span class="spacing-label">4 — 16px — card gap</span><div class="spacing-bar" style="width:16px;"></div></div>
-        <div class="spacing-item"><span class="spacing-label">6 — 24px — card padding</span><div class="spacing-bar" style="width:24px;"></div></div>
-        <div class="spacing-item"><span class="spacing-label">8 — 32px — column gap</span><div class="spacing-bar" style="width:32px;"></div></div>
-        <div class="spacing-item"><span class="spacing-label">12 — 48px — headline→grid</span><div class="spacing-bar" style="width:48px;"></div></div>
-        <div class="spacing-item"><span class="spacing-label">20 — 80px — section py</span><div class="spacing-bar" style="width:80px;"></div></div>
+      <p class="ds-section-label">/ 09 / Signature Components</p>
+      <p class="type-body-md" style="color:var(--color-body); max-width:580px; margin-bottom:48px;">
+        Feature-tab pills, pricing sub-tabs, the toggle-pill segmented control, and the data-table chrome. Combined, these load the brand's technical voice into product surfaces.
+      </p>
+
+      <div style="display:flex; flex-direction:column; gap:40px;">
+
+        <!-- Feature tab pills (radius 8px) -->
+        <div>
+          <p class="type-mono-caption" style="color:var(--color-body); margin-bottom:12px;">Feature-Tab-Pill (Radius 8 PX)</p>
+          <div class="feature-tabs">
+            <button class="feature-tab active">Inference</button>
+            <button class="feature-tab">Fine-tuning</button>
+            <button class="feature-tab">ISO 45001</button>
+            <button class="feature-tab">EHS Snapshot</button>
+          </div>
+        </div>
+
+        <!-- Pricing sub-tabs (radius 3.25px) -->
+        <div>
+          <p class="type-mono-caption" style="color:var(--color-body); margin-bottom:12px;">Pricing-Sub-Tab (Radius 3.25 PX)</p>
+          <div class="pricing-tabs">
+            <button class="pricing-tab">Snapshot</button>
+            <button class="pricing-tab">Gap Assessment</button>
+            <button class="pricing-tab">Full Audit</button>
+            <button class="pricing-tab">ESG Report</button>
+          </div>
+        </div>
+
+        <!-- Toggle pill group (radius 8px) -->
+        <div>
+          <p class="type-mono-caption" style="color:var(--color-body); margin-bottom:12px;">Toggle-Pill-Group (Radius 8 PX)</p>
+          <div class="toggle-group">
+            <button class="toggle-pill active">Standard Pricing</button>
+            <button class="toggle-pill">Wholesale Pricing</button>
+          </div>
+        </div>
+
+        <!-- Badges -->
+        <div>
+          <p class="type-mono-caption" style="color:var(--color-body); margin-bottom:12px;">Badge-Neutral / Badge-Subtle / Badge-On-Dark</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+            <span class="badge badge-neutral type-mono-label">ISO 45001</span>
+            <span class="badge badge-neutral type-mono-label">New</span>
+            <span class="badge badge-subtle type-mono-label">Beta</span>
+            <span style="background:var(--color-canvas-dark); display:inline-flex; gap:8px; padding:8px 12px; border-radius:4px; align-items:center;">
+              <span class="badge badge-on-dark type-mono-label">/ on dark</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Data table -->
+        <div>
+          <p class="type-mono-caption" style="color:var(--color-body); margin-bottom:12px;">Data-Table-Row + Data-Table-Header (Pricing Chrome)</p>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th class="type-mono-label" style="color:var(--color-body);">KPI Indicator</th>
+                  <th class="type-mono-label" style="color:var(--color-body);">Category</th>
+                  <th class="type-mono-label" style="color:var(--color-body);">Benchmark</th>
+                  <th class="type-mono-label" style="color:var(--color-body);">Client Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="type-body-md">Lost Time Injury Rate</td>
+                  <td><span class="type-mono-label" style="color:var(--color-body);">Lagging</span></td>
+                  <td class="type-body-md">≤ 2.1</td>
+                  <td class="type-body-md">1.8</td>
+                </tr>
+                <tr>
+                  <td class="type-body-md">Safety Observation Rate</td>
+                  <td><span class="type-mono-label" style="color:var(--color-body);">Leading</span></td>
+                  <td class="type-body-md">≥ 85%</td>
+                  <td class="type-body-md">61%</td>
+                </tr>
+                <tr>
+                  <td class="type-body-md">ISO 45001 Clause Coverage</td>
+                  <td><span class="type-mono-label" style="color:var(--color-body);">Leading</span></td>
+                  <td class="type-body-md">≥ 90%</td>
+                  <td class="type-body-md">42%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Stat tiles grid (mint / periwinkle / peach) -->
+        <div>
+          <p class="type-mono-caption" style="color:var(--color-body); margin-bottom:12px;">Stats-Card-Tinted Grid (Mint / Violet / Peach)</p>
+          <div class="grid-3">
+            <div class="stat-tile-mint">
+              <p class="type-display-lg" style="color:var(--color-ink); margin-bottom:8px;">2×</p>
+              <p class="type-mono-label" style="color:rgba(0,0,0,0.55);">Throughput</p>
+            </div>
+            <div class="stat-tile-violet">
+              <p class="type-display-lg" style="color:var(--color-ink); margin-bottom:8px;">60%</p>
+              <p class="type-mono-label" style="color:rgba(0,0,0,0.55);">Latency Reduction</p>
+            </div>
+            <div class="stat-tile-peach">
+              <p class="type-display-lg" style="color:var(--color-ink); margin-bottom:8px;">90%</p>
+              <p class="type-mono-label" style="color:rgba(0,0,0,0.55);">Cost Saved</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 10 Brand Gradient ── -->
+  <section class="section-dark" id="gradient">
+    <div class="container">
+      <p class="ds-section-label">/ 10 / Brand Gradient</p>
+      <p class="type-body-md" style="color:rgba(255,255,255,0.55); max-width:520px; margin-bottom:48px;">
+        A three-stop gradient drawn from violet → magenta → orange. It is the brand's entire decorative system — rendered at hero scale, never reduced to icon size, never reordered, never extended with a fourth stop.
+      </p>
+
+      <!-- Full-width gradient strip -->
+      <div style="width:100%; height:80px; border-radius:4px; background:var(--brand-gradient); margin-bottom:24px;"></div>
+
+      <!-- Individual stops -->
+      <div class="grid-3" style="margin-bottom:48px;">
+        <div>
+          <div style="height:64px; border-radius:4px; background:#CB3CFF; margin-bottom:8px;"></div>
+          <p class="type-mono-label" style="color:rgba(255,255,255,0.7);">Primary Violet</p>
+          <p class="type-mono-caption" style="color:rgba(255,255,255,0.4);">#CB3CFF</p>
+        </div>
+        <div>
+          <div style="height:64px; border-radius:4px; background:#EF5CC1; margin-bottom:8px;"></div>
+          <p class="type-mono-label" style="color:rgba(255,255,255,0.7);">Brand Magenta</p>
+          <p class="type-mono-caption" style="color:rgba(255,255,255,0.4);">#EF5CC1</p>
+        </div>
+        <div>
+          <div style="height:64px; border-radius:4px; background:#FC4C02; margin-bottom:8px;"></div>
+          <p class="type-mono-label" style="color:rgba(255,255,255,0.7);">Tertiary Orange</p>
+          <p class="type-mono-caption" style="color:rgba(255,255,255,0.4);">#FC4C02</p>
+        </div>
+      </div>
+
+      <!-- Gradient mesh specimen -->
+      <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:20px;">/ Gradient Mesh (Hero Right Column)</p>
+      <div style="max-width:480px; height:320px; position:relative; border-radius:4px; overflow:hidden; border:1px solid var(--color-hairline-dark);">
+        <div class="gradient-mesh" style="position:absolute; inset:0; width:100%; height:100%; filter:blur(50px);">
+          <div class="mesh-a"></div>
+          <div class="mesh-b"></div>
+          <div class="mesh-c"></div>
+        </div>
+        <div style="position:absolute; bottom:16px; left:16px;">
+          <span class="type-mono-caption" style="color:rgba(255,255,255,0.35);">#CB3CFF → #EF5CC1 → #FC4C02 · blur(50px) · mix-blend-mode: screen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 11 Responsive Behavior ── -->
+  <section class="section-light" id="responsive">
+    <div class="container">
+      <p class="ds-section-label">/ 11 / Responsive Behavior</p>
+      <p class="type-body-md" style="color:var(--color-body); max-width:520px; margin-bottom:48px;">
+        A 1280px max-width container, 5 breakpoints, and a strict "stack-don't-scroll" policy. The brand gradient and the wordmark banner are the only edge-to-edge elements; everything else centers inside the container.
+      </p>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th class="type-mono-label" style="color:var(--color-body);">Name</th>
+              <th class="type-mono-label" style="color:var(--color-body);">Width</th>
+              <th class="type-mono-label" style="color:var(--color-body);">Key Changes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="type-body-md">Mobile</td><td class="type-body-md">&lt; 479 px</td><td class="type-body-md" style="color:var(--color-body);">Hero stacks; nav collapses to hamburger; multi-col grids drop to 1-up.</td></tr>
+            <tr><td class="type-body-md">Mobile-Large</td><td class="type-body-md">479–767 px</td><td class="type-body-md" style="color:var(--color-body);">Same as Mobile; some tables enable horizontal scroll.</td></tr>
+            <tr><td class="type-body-md">Tablet</td><td class="type-body-md">768–991 px</td><td class="type-body-md" style="color:var(--color-body);">Article grid moves to 2-up; testimonial grid 3-up only if container &gt; 900px.</td></tr>
+            <tr><td class="type-body-md">Desktop</td><td class="type-body-md">992–1279 px</td><td class="type-body-md" style="color:var(--color-body);">Full 3-column research grid, 2-up article grid, hero 50/50 split.</td></tr>
+            <tr><td class="type-body-md">Desktop-Large</td><td class="type-body-md">≥ 1280 px</td><td class="type-body-md" style="color:var(--color-body);">Container caps at 1280px; bands stay edge-to-edge while content centers.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing Tiers ── -->
+  <section class="section-soft" id="pricing">
+    <div class="container">
+      <p class="ds-section-label">/ Pricing Tiers</p>
+      <p class="type-body-md" style="color:var(--color-body); max-width:520px; margin-bottom:48px;">
+        Three-up plan grid with the middle tier polarity-flipped. Mono uppercase tier name, display numeral price, hairline-divided feature list.
+      </p>
+      <div class="pricing-grid">
+        <!-- Starter -->
+        <div class="pricing-card pricing-card-light">
+          <p class="type-mono-label" style="color:var(--color-body); margin-bottom:16px;">/0.1 · Starter</p>
+          <p class="type-display-lg" style="color:var(--color-ink); margin-bottom:4px;">CHF 490<span class="type-body-md" style="color:var(--color-body);">/project</span></p>
+          <p class="type-body-md" style="color:var(--color-body); margin-bottom:24px;">For companies getting started.</p>
+          <div style="margin-bottom:24px;">
+            <div class="pricing-feature"><div class="pricing-dot"></div>EHS Snapshot</div>
+            <div class="pricing-feature"><div class="pricing-dot"></div>Up to 3 KPIs benchmarked</div>
+            <div class="pricing-feature"><div class="pricing-dot"></div>Community support</div>
+          </div>
+          <button class="btn btn-outline" style="width:100%;">Get Started</button>
+        </div>
+
+        <!-- Pro (polarity-flipped) -->
+        <div class="pricing-card pricing-card-dark" style="position:relative;">
+          <div style="position:absolute; top:16px; right:16px;"><span class="badge badge-on-dark type-mono-label" style="background:var(--color-primary);">● Most Popular</span></div>
+          <p class="type-mono-label" style="color:var(--color-body); margin-bottom:16px;">/0.2 · Pro</p>
+          <p class="type-display-lg" style="color:#fff; margin-bottom:4px;">CHF 990<span class="type-body-md" style="color:rgba(255,255,255,0.5);">/project</span></p>
+          <p class="type-body-md" style="color:rgba(255,255,255,0.5); margin-bottom:24px;">For teams ready to ship.</p>
+          <div style="margin-bottom:24px;">
+            <div class="pricing-feature pricing-feature-dark"><div class="pricing-dot" style="background:#fff;"></div>Everything in Starter</div>
+            <div class="pricing-feature pricing-feature-dark"><div class="pricing-dot" style="background:#fff;"></div>Full ISO 45001 gap assessment</div>
+            <div class="pricing-feature pricing-feature-dark"><div class="pricing-dot" style="background:#fff;"></div>Email support</div>
+            <div class="pricing-feature pricing-feature-dark"><div class="pricing-dot" style="background:#fff;"></div>Advanced EHS analytics</div>
+          </div>
+          <button class="btn btn-mint" style="width:100%;">Start Free Trial</button>
+        </div>
+
+        <!-- Team -->
+        <div class="pricing-card pricing-card-light">
+          <p class="type-mono-label" style="color:var(--color-body); margin-bottom:16px;">/0.3 · Team</p>
+          <p class="type-display-lg" style="color:var(--color-ink); margin-bottom:4px;">CHF 1,990<span class="type-body-md" style="color:var(--color-body);">/project</span></p>
+          <p class="type-body-md" style="color:var(--color-body); margin-bottom:24px;">For organisations operating at scale.</p>
+          <div style="margin-bottom:24px;">
+            <div class="pricing-feature"><div class="pricing-dot"></div>Everything in Pro</div>
+            <div class="pricing-feature"><div class="pricing-dot"></div>SSO + audit log</div>
+            <div class="pricing-feature"><div class="pricing-dot"></div>Priority support</div>
+            <div class="pricing-feature"><div class="pricing-dot"></div>SLA &amp; onboarding</div>
+          </div>
+          <button class="btn btn-outline" style="width:100%;">Talk to Sales</button>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ── Nav ── -->
-  <section style="background:var(--color-surface); padding:5rem 0;" id="nav">
+  <section class="section-light" id="nav">
     <div class="container">
-      <p class="ds-section-label">08 — Nav</p>
-      <div style="display:flex; flex-direction:column; gap:1.5rem;">
+      <p class="ds-section-label">/ Nav</p>
+      <div style="display:flex; flex-direction:column; gap:24px;">
         <div>
-          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:0.75rem;">After scroll — light</p>
+          <p class="type-mono-caption" style="color:var(--color-body); margin-bottom:12px;">After Scroll — Light</p>
           <div class="nav-preview">
-            <span class="type-mono-button" style="color:var(--color-fg);">SME24</span>
+            <span class="type-mono-button" style="color:var(--color-ink);">SME24</span>
             <div class="nav-links">
-              <a href="#" class="nav-link type-mono-button">Platform</a>
-              <a href="#" class="nav-link type-mono-button">Experts</a>
-              <a href="#" class="nav-link type-mono-button">Packages</a>
+              <a href="#" class="nav-link type-mono-label">Platform</a>
+              <a href="#" class="nav-link type-mono-label">Experts</a>
+              <a href="#" class="nav-link type-mono-label">Pricing</a>
+              <a href="#" class="nav-link type-mono-label">Research</a>
+              <a href="#" class="nav-link type-mono-label">Docs</a>
             </div>
-            <button class="btn btn-primary-light type-mono-button">Get started</button>
+            <button class="btn btn-primary" style="padding:8px 20px;">Sign In</button>
           </div>
         </div>
         <div>
-          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:0.75rem;">Hero — dark</p>
-          <div class="nav-preview" style="background:rgba(7,7,25,0.9); border-color:var(--color-hairline-dark);">
+          <p class="type-mono-caption" style="color:var(--color-body); margin-bottom:12px;">Hero — Dark</p>
+          <div class="nav-preview" style="background:rgba(1,1,37,0.9); border-color:var(--color-hairline-dark);">
             <span class="type-mono-button" style="color:#fff;">SME24</span>
             <div class="nav-links">
-              <a href="#" class="type-mono-button" style="color:rgba(255,255,255,0.7); text-decoration:none;">Platform</a>
-              <a href="#" class="type-mono-button" style="color:rgba(255,255,255,0.7); text-decoration:none;">Experts</a>
-              <a href="#" class="type-mono-button" style="color:rgba(255,255,255,0.7); text-decoration:none;">Packages</a>
+              <a href="#" class="type-mono-label" style="color:rgba(255,255,255,0.6); text-decoration:none;">Platform</a>
+              <a href="#" class="type-mono-label" style="color:rgba(255,255,255,0.6); text-decoration:none;">Experts</a>
+              <a href="#" class="type-mono-label" style="color:rgba(255,255,255,0.6); text-decoration:none;">Pricing</a>
+              <a href="#" class="type-mono-label" style="color:rgba(255,255,255,0.6); text-decoration:none;">Research</a>
             </div>
-            <button class="btn btn-primary-dark type-mono-button">Get started</button>
+            <button class="btn btn-ghost-dark" style="padding:8px 20px;">Sign In</button>
           </div>
         </div>
       </div>
@@ -518,25 +1058,26 @@
   <section id="hero">
     <div class="hero-band">
       <div class="container">
-        <p class="ds-section-label">09 — Hero Band</p>
+        <p class="ds-section-label">/ Hero Band</p>
         <div class="hero-grid">
           <div>
-            <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:1rem;">AI-Powered EHS Intelligence</p>
-            <h1 class="type-display-hero" style="color:#fff; margin-bottom:1.5rem;">
+            <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:16px;">/ AI-Powered EHS Intelligence</p>
+            <h1 class="type-display-xxl" style="color:#fff; margin-bottom:24px;">
               From company name to expert proposal in minutes
             </h1>
-            <p class="type-body-lg" style="color:rgba(255,255,255,0.5); margin-bottom:2rem;">
+            <p class="type-body-lg" style="color:rgba(255,255,255,0.55); margin-bottom:32px;">
               SME24 runs the compliance research so your experts focus on the work that matters.
             </p>
             <div class="btn-group">
-              <button class="btn btn-primary-dark type-mono-button">Start your assessment</button>
-              <button class="btn btn-secondary-dark type-mono-button">Explore packages</button>
+              <button class="btn btn-primary">Start Assessment</button>
+              <button class="btn btn-mint">Watch the Announcement</button>
             </div>
           </div>
-          <div style="position:relative; min-height:320px;">
+          <div style="position:relative; min-height:340px;">
             <div class="gradient-mesh">
               <div class="mesh-a"></div>
               <div class="mesh-b"></div>
+              <div class="mesh-c"></div>
             </div>
           </div>
         </div>
@@ -544,42 +1085,47 @@
     </div>
   </section>
 
-  <!-- ── Table ── -->
-  <section class="section-light" id="table">
+  <!-- ── 15 Table ── -->
+  <section class="section-soft" id="table">
     <div class="container">
-      <p class="ds-section-label">10 — Table</p>
+      <p class="ds-section-label">/ 15 / Table</p>
+      <p class="type-body-md" style="color:var(--color-body); max-width:580px; margin-bottom:48px;">
+        Data table chrome used for KPI benchmarking, gap assessments, and research output surfaces.
+      </p>
       <div style="overflow-x:auto;">
         <table>
           <thead>
             <tr>
-              <th class="type-mono-eyebrow">KPI Indicator</th>
-              <th class="type-mono-eyebrow">Category</th>
-              <th class="type-mono-eyebrow">Benchmark</th>
-              <th class="type-mono-eyebrow">Client Score</th>
-              <th class="type-mono-eyebrow">Status</th>
+              <th class="type-mono-label" style="color:var(--color-body);">KPI Indicator</th>
+              <th class="type-mono-label" style="color:var(--color-body);">Category</th>
+              <th class="type-mono-label" style="color:var(--color-body);">Benchmark</th>
+              <th class="type-mono-label" style="color:var(--color-body);">Client Score</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Lost Time Injury Rate</td>
+              <td class="type-body-md">Lost Time Injury Rate</td>
               <td><span class="type-mono-label" style="color:var(--color-body);">Lagging</span></td>
-              <td>≤ 2.1</td>
-              <td>1.8</td>
-              <td><span class="badge badge-brand type-mono-label" style="background:rgba(22,163,74,0.1); color:#16a34a; border-color:rgba(22,163,74,0.2);">On track</span></td>
+              <td class="type-body-md">≤ 2.1</td>
+              <td class="type-body-md">1.8</td>
             </tr>
             <tr>
-              <td>Safety Observation Rate</td>
+              <td class="type-body-md">Safety Observation Rate</td>
               <td><span class="type-mono-label" style="color:var(--color-body);">Leading</span></td>
-              <td>≥ 85%</td>
-              <td>61%</td>
-              <td><span class="badge badge-brand type-mono-label" style="background:rgba(245,158,11,0.1); color:#f59e0b; border-color:rgba(245,158,11,0.2);">Gap</span></td>
+              <td class="type-body-md">≥ 85%</td>
+              <td class="type-body-md">61%</td>
             </tr>
             <tr>
-              <td>ISO 45001 Clause Coverage</td>
+              <td class="type-body-md">ISO 45001 Clause Coverage</td>
               <td><span class="type-mono-label" style="color:var(--color-body);">Leading</span></td>
-              <td>≥ 90%</td>
-              <td>42%</td>
-              <td><span class="badge badge-brand type-mono-label" style="background:rgba(220,38,38,0.1); color:#dc2626; border-color:rgba(220,38,38,0.2);">Critical</span></td>
+              <td class="type-body-md">≥ 90%</td>
+              <td class="type-body-md">42%</td>
+            </tr>
+            <tr>
+              <td class="type-body-md">Near Miss Reporting Rate</td>
+              <td><span class="type-mono-label" style="color:var(--color-body);">Leading</span></td>
+              <td class="type-body-md">≥ 95%</td>
+              <td class="type-body-md">78%</td>
             </tr>
           </tbody>
         </table>
@@ -587,55 +1133,37 @@
     </div>
   </section>
 
-  <!-- ── Gradient specimen ── -->
-  <section style="background:var(--color-canvas-dark); padding:5rem 0;" id="gradient">
+  <!-- ── 16 Stat Tiles section ── -->
+  <section class="section-light" id="stat-tiles">
     <div class="container">
-      <p class="ds-section-label">11 — Brand Gradient</p>
-      <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:1rem;">Single fixed object — hero scale only</p>
-      <p class="type-body-md" style="color:rgba(255,255,255,0.5); margin-bottom:2rem; max-width:520px;">
-        Two organic overlapping ellipses rendered with blur and screen blend mode. Never miniaturised, never reordered. Minimum rendered width 400px.
-      </p>
-      <div style="max-width:520px; height:300px; position:relative; border-radius:4px; overflow:hidden; border:1px solid var(--color-hairline-dark);">
-        <div style="position:absolute; inset:0; filter:blur(50px);">
-          <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 38% 55%, rgba(146,89,253,0.8) 0%, transparent 65%);"></div>
-          <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 65% 38%, rgba(56,189,248,0.6) 0%, transparent 60%);"></div>
+      <p class="ds-section-label">/ Stat Tiles</p>
+      <div class="grid-3">
+        <div class="stat-tile-mint">
+          <p class="type-display-lg" style="color:var(--color-ink); margin-bottom:8px;">94%</p>
+          <p class="type-mono-label" style="color:rgba(0,0,0,0.55);">Proposal Acceptance Rate</p>
         </div>
-        <div style="position:absolute; bottom:1rem; left:1rem;">
-          <span class="type-mono-label" style="color:rgba(255,255,255,0.4);">#9259fd → #38bdf8 · blur(40px) · mix-blend-mode: screen</span>
+        <div class="stat-tile-violet">
+          <p class="type-display-lg" style="color:var(--color-ink); margin-bottom:8px;">3.2×</p>
+          <p class="type-mono-label" style="color:rgba(0,0,0,0.55);">Faster Than Manual Research</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Eyebrow pattern ── -->
-  <section class="section-light">
-    <div class="container">
-      <p class="ds-section-label">12 — Eyebrow + Headline pattern</p>
-      <div class="grid-2">
-        <div>
-          <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:0.75rem;">AI Research Pipeline</p>
-          <h2 class="type-display-section" style="color:var(--color-fg); margin-bottom:1rem;">From company name to benchmarked proposal</h2>
-          <p class="type-body-lg" style="color:var(--color-body);">Light surface: eyebrow in <code style="font-family:var(--font-mono); font-size:0.75rem; background:#f0f0f0; padding:0.1em 0.3em; border-radius:2px;">text-body</code></p>
-        </div>
-        <div style="background:var(--color-canvas-dark); padding:2rem; border-radius:4px;">
-          <p class="type-mono-eyebrow" style="color:var(--color-brand); margin-bottom:0.75rem;">AI Research Pipeline</p>
-          <h2 class="type-display-section" style="color:#fff; margin-bottom:1rem;">From company name to benchmarked proposal</h2>
-          <p class="type-body-lg" style="color:rgba(255,255,255,0.5);">Dark surface: eyebrow in <code style="font-family:var(--font-mono); font-size:0.75rem; background:var(--color-hairline-dark); padding:0.1em 0.3em; border-radius:2px; color:#fff;">text-brand</code></p>
+        <div class="stat-tile-peach">
+          <p class="type-display-lg" style="color:var(--color-ink); margin-bottom:8px;">48h</p>
+          <p class="type-mono-label" style="color:rgba(0,0,0,0.55);">Average Proposal Turnaround</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ── Wordmark ── -->
-  <section id="wordmark" style="background:var(--color-bg);">
-    <div style="max-width:1280px; margin:0 auto; padding:3rem 1.5rem 0;">
-      <p class="ds-section-label">13 — Footer Wordmark</p>
-      <p class="type-caption" style="color:var(--color-body); margin-bottom:2rem;">Tinted to hairline color (#e4e4e7) — a faint stencil sign-off. Never a heavy title.</p>
+  <section id="wordmark" style="background:var(--color-canvas);">
+    <div style="max-width:1280px; margin:0 auto; padding:48px 1.5rem 0;">
+      <p class="ds-section-label">/ Wordmark</p>
+      <p class="type-caption" style="color:var(--color-body); margin-bottom:24px;">Tinted to hairline color (#E8E8E8) — a faint stencil sign-off. Never a heavy title.</p>
     </div>
     <div class="wordmark-banner">
       <p class="wordmark-text">sme24.ch</p>
     </div>
-    <div style="max-width:1280px; margin:0 auto; padding:1rem 1.5rem 3rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--color-border);">
+    <div style="max-width:1280px; margin:0 auto; padding:16px 1.5rem 48px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--color-hairline);">
       <span class="type-mono-label" style="color:var(--color-body);">© 2026 SME24 AG</span>
       <span class="type-mono-label" style="color:var(--color-body);">EHS Intelligence Platform</span>
     </div>

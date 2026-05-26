@@ -19,7 +19,7 @@ The ranked top-3 expert matches produced by a Run. Computed once at Run time and
 _Avoid_: recommendations, matches, results
 
 **Competency Tag**:
-An admin-defined label from the `competency_tags` table describing an area of EHS expertise (e.g. "ISO 45001", "Fatality Prevention"). Experts select from this fixed list on their application. The pipeline scores experts by tag overlap with a company's risk profile. No freetext — the vocabulary is controlled by admin.
+An admin-defined label from the `competency_tags` table describing an area of EHS expertise. Experts select from this fixed list on their application. The pipeline scores experts by tag overlap with a company's risk profile. No freetext — the vocabulary is controlled by admin. Canonical categories (client-confirmed): Process Safety, Safety Leadership, Operational Excellence, Asset Integrity, Explosion Protection, ESG & Sustainability, Industrial Transformation, Safety Culture. Standards (e.g. ISO 45001) appear as badge details within expert cards, not as top-level category labels.
 _Avoid_: skill, specialty, tag, keyword
 
 **Knowledge Base**:
@@ -61,7 +61,11 @@ _Avoid_: credits, tokens, allowance
 ### Payments and Engagements
 
 **Package**:
-A fixed-price product definition (CHF 2,000 / 5,000 / 10,000). Defined in `lib/packages.ts`. The input to Stripe Checkout. Not a database entity.
+A fixed-price product definition. Currently defined inline in `app/(marketing)/packages/page.tsx`; extracted to `lib/packages.ts` in Unit 09. The input to Stripe Checkout. Not a database entity. Four packages:
+- **EHS Snapshot** — CHF 2,000. Remote (1 day). Output: Top 5 Risks. Via Stripe Checkout.
+- **EHS Reality Check** — CHF 5,000. On-Site (2 days). Output: Top 20 Risks. Via Stripe Checkout.
+- **EHS Transformation Plan** — CHF 10,000. On-Site (5 days). Output: Gap Plan & Timeline. Via Stripe Checkout.
+- **EHS Execution Partner** — CHF 10,000 + CHF 1,850/day (incl. travel & living). On-Site + Ongoing. Output: Measured Risk Reduction. Via contact form only — not a Stripe product.
 _Avoid_: plan, tier, service, product
 
 **Order**:
