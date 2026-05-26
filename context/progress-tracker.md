@@ -39,10 +39,10 @@ Note: `app/page.tsx` deleted — marketing owns `/` via route group. `app/(marke
 | Page | Route | Spec | Key sections |
 |------|-------|------|-------------|
 | Home | `/` | `context/specs/unit-02-homepage.md` | Nav, Hero, Industry Pain, Stats tiles, How It Works teaser (4 steps), Industries Served, Expert preview, Packages teaser, CTA band, Footer |
-| How It Works | `/how-it-works` | — | Step-by-step pipeline walkthrough |
-| Expert Network | `/experts` | — | Directory teaser, application CTA |
-| Packages | `/packages` | — | All 4 packages (3 Stripe + 1 contact form card), pricing comparison table |
-| Contact | `/contact` | — | Contact form (server action → Resend) |
+| How It Works | `/how-it-works` | `context/specs/unit-02-howitworks.md` | Step-by-step pipeline walkthrough |
+| Expert Network | `/experts` | `context/specs/unit-02-experts.md` | Directory teaser, application CTA |
+| Packages | `/packages` | `context/specs/unit-02-packages.md` | All 4 packages (3 Stripe + 1 contact form card), pricing comparison table |
+| Contact | `/contact` | `context/specs/unit-02-contact.md` | Contact form (server action → Resend) |
 
 Shared components: `components/marketing/nav.tsx`, `components/marketing/footer.tsx`.
 

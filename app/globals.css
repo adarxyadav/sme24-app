@@ -5,23 +5,23 @@
 
 @theme {
   /* === Surfaces === */
-  --color-canvas:            #ffffff;
-  --color-canvas-dark:       #010125;
+  --color-canvas:            #f7f7f9;
+  --color-canvas-dark:       #111111;
   --color-surface-dark-soft: #313641;
   --color-hairline:          #e8e8e8;
   --color-hairline-dark:     #26263a;
 
   /* === Text === */
   --color-ink:               #000000;
-  --color-body:              #666666;
+  --color-body:              #2b2b2b;
   --color-on-dark:           #ffffff;
 
   /* === Primary action === */
-  --color-primary:           #9259fd;
+  --color-primary:           #cb3cff;
   --color-on-primary:        #ffffff;
 
   /* === Brand gradient stops (violet → magenta → orange) === */
-  --color-brand-violet:      #9259fd;
+  --color-brand-violet:      #cb3cff;
   --color-brand-magenta:     #ef5cc1;
   --color-brand-orange:      #fc4c02;
 
@@ -37,7 +37,7 @@
 
   /* === Typography === */
   --font-sans: var(--font-urbanist);
-  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", "Menlo", monospace;
 
   /* === Radii === */
   --radius-none: 0px;
@@ -122,24 +122,28 @@
     font-weight: 400;
     line-height: 23.4px;
     letter-spacing: -0.18px;
+    color: var(--color-body);
   }
   .type-body-lg-strong {
     font-size: 1.125rem;
     font-weight: 500;
     line-height: 23.4px;
     letter-spacing: -0.18px;
+    color: var(--color-body);
   }
   .type-body-md {
     font-size: 1rem;
     font-weight: 400;
     line-height: 20.8px;
     letter-spacing: -0.16px;
+    color: var(--color-body);
   }
   .type-body-md-strong {
     font-size: 1rem;
     font-weight: 500;
     line-height: 20.8px;
     letter-spacing: -0.16px;
+    color: var(--color-body);
   }
   .type-caption {
     font-size: 0.875rem;
@@ -188,6 +192,6 @@
 
   /* Brand gradient — 3-stop, fixed stops, hero use only */
   .brand-gradient {
-    background: linear-gradient(90deg, #9259fd 0%, #ef5cc1 50%, #fc4c02 100%);
+    background: linear-gradient(90deg, #cb3cff 0%, #ef5cc1 50%, #fc4c02 100%);
   }
 }

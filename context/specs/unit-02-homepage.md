@@ -12,8 +12,8 @@ Note: `app/page.tsx` is deleted. Marketing owns `/` via the route group.
 | # | Section | Surface |
 |---|---------|---------|
 | 1 | Nav | Transparent → dark on dark hero / white on scroll |
-| 2 | Hero | Dark band `bg-[#010125]` |
-| 3 | Industry Pain | Dark band `bg-[#010125]` |
+| 2 | Hero | Dark band `bg-[#111111]` |
+| 3 | Industry Pain | Dark band `bg-[#111111]` |
 | 4 | Stats tiles | White band `bg-white` |
 | 5 | How It Works teaser | White band `bg-white` |
 | 6 | Industries Served | White band `bg-white` |
@@ -30,20 +30,20 @@ File: `components/marketing/nav.tsx`
 
 - Logo: "SME24" wordmark, links to `/`
 - Links (mono-label uppercase, gap 32px): How It Works → `/how-it-works` | Experts → `/experts` | Packages → `/packages` | Contact → `/contact`
-- Active state: `text-[#9259FD]`
+- Active state: `text-[#CB3CFF]`
 - CTA pill: "GET YOUR BENCHMARK" → `/auth/signup`
   - On dark hero: ghost-dark `bg-[#313641] text-white`
-  - After scroll (light): primary `bg-[#9259FD] text-white`
+  - After scroll (light): primary `bg-[#CB3CFF] text-white`
 - Sticky: `sticky top-0 z-50 backdrop-blur-sm`
-  - On dark hero: `bg-[#010125]/90`
+  - On dark hero: `bg-[#111111]/90`
   - After scroll: `bg-white/90 border-b border-[#E8E8E8]`
-- Mobile (`< 768px`): hamburger icon → full-screen dark overlay `bg-[#010125]`, 200ms CSS opacity fade, links centered, large touch targets, X to close.
+- Mobile (`< 768px`): hamburger icon → full-screen dark overlay `bg-[#111111]`, 200ms CSS opacity fade, links centered, large touch targets, X to close.
 
 ---
 
 ## 2 — Hero
 
-Surface: `bg-[#010125] py-20`
+Surface: `bg-[#111111] py-20`
 Layout: `grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`
 
 **Left column (copy stack, left-aligned):**
@@ -51,20 +51,20 @@ Layout: `grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`
 - Headline (`type-display-xxl text-white`): "No slides. Just visibility."
 - Sub-headline (`type-body-lg text-white/60`): "Operational blind spots identified before the first workshop. AI-benchmarked. Senior expert delivered."
 - CTA group `flex gap-3`:
-  - Primary: "GET YOUR BENCHMARK" → `/auth/signup` — `bg-[#9259FD] text-white`
+  - Primary: "GET YOUR BENCHMARK" → `/auth/signup` — `bg-[#CB3CFF] text-white`
   - Secondary: "SEE HOW IT WORKS" → `/how-it-works` — `bg-[#CBF6F9] text-[#000000]`
 
 **Right column (gradient mesh):**
-- Three overlapping blurred radial gradients on `bg-[#010125]` canvas
+- Three overlapping blurred radial gradients on `bg-[#111111]` canvas
 - `mix-blend-mode: screen`
-- Stops: `#9259FD`, `#EF5CC1`, `#FC4C02`
+- Stops: `#CB3CFF`, `#EF5CC1`, `#FC4C02`
 - Min rendered width 400px; hidden below `lg`, stacks below copy on mobile
 
 ---
 
 ## 3 — Industry Pain
 
-Surface: `bg-[#010125] py-20`
+Surface: `bg-[#111111] py-20`
 Layout: Two-column contrast — Traditional Consulting vs SME24
 
 - Eyebrow: `/ THE PROBLEM` — `type-mono-eyebrow text-[#959494]`
@@ -171,13 +171,13 @@ Surface: `bg-white py-20`
 | EHS Transformation Plan | CHF 10,000 | Fix systematically | On-Site (5 days) | Gap Plan & Timeline | "GET STARTED" → `/auth/signup` (primary violet) |
 | EHS Execution Partner | CHF 10,000 + 1,850/day | Deliver results | On-Site + Ongoing | Measured Risk Reduction | "LET'S TALK" → `/contact` (ghost-dark `bg-[#313641]`) |
 
-Middle card (EHS Reality Check) polarity-flipped: `bg-[#010125]` per design spec pricing tier pattern.
+Middle card (EHS Reality Check) polarity-flipped: `bg-[#111111]` per design spec pricing tier pattern.
 
 ---
 
 ## 9 — CTA Band
 
-Surface: Full-bleed gradient strip `linear-gradient(90deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%)`
+Surface: Full-bleed gradient strip `linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%)`
 Height: ~200px. No container cap — edge-to-edge.
 
 - Headline (`type-display-xl text-white`, centered): "Your company's EHS risk profile, in minutes"
@@ -192,7 +192,7 @@ Height: ~200px. No container cap — edge-to-edge.
 File: `components/marketing/footer.tsx`
 
 **Wordmark banner** (full-bleed, above footer body):
-```
+```text
 border-t border-[#E8E8E8]
 "sme24.ch" — clamp(4rem, 12vw, 10rem), Urbanist 500, color #E8E8E8, white-space nowrap
 ```

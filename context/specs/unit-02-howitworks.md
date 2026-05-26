@@ -10,8 +10,8 @@ Layout: `app/(marketing)/layout.tsx` — Nav + Footer shared.
 
 | # | Section | Surface |
 |---|---------|---------|
-| 1 | Hero | Dark band `bg-[#010125]` |
-| 2 | Why Traditional Fails | Dark band `bg-[#010125]` |
+| 1 | Hero | Dark band `bg-[#111111]` |
+| 2 | Why Traditional Fails | Dark band `bg-[#111111]` |
 | 3 | AI Pipeline | Light band `bg-white` |
 | 4 | Proposal & Purchase | Light band `bg-white` |
 | 5 | Speed & Delivery | Light band `bg-white` |
@@ -21,7 +21,7 @@ Layout: `app/(marketing)/layout.tsx` — Nav + Footer shared.
 
 ## 1 — Hero
 
-Surface: `bg-[#010125] py-20`
+Surface: `bg-[#111111] py-20`
 Layout: `grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`
 
 **Left column:**
@@ -29,7 +29,7 @@ Layout: `grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`
 - Headline (`type-display-xxl text-white`): "Signals before workshops."
 - Sub-headline (`type-body-lg text-white/60`): "AI researches your company's public EHS footprint before any consultant sets foot on site. You see the exposure before you commit."
 - CTA group `flex gap-3`:
-  - Primary: "GET YOUR BENCHMARK" → `/auth/signup` — `bg-[#9259FD] text-white`
+  - Primary: "GET YOUR BENCHMARK" → `/auth/signup` — `bg-[#CB3CFF] text-white`
   - Secondary: "EXPLORE EXPERTS" → `/experts` — `bg-[#CBF6F9] text-[#000000]`
 
 **Right column:** Brand gradient mesh (same implementation as homepage hero).
@@ -38,7 +38,7 @@ Layout: `grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`
 
 ## 2 — Why Traditional Consulting Fails
 
-Surface: `bg-[#010125] py-20`
+Surface: `bg-[#111111] py-20`
 Layout: Two-column contrast cards (`bg-[#313641] border border-[#26263A]`)
 
 - Eyebrow: `/ THE PROBLEM` — `type-mono-eyebrow text-[#959494]`
@@ -125,7 +125,7 @@ Label: `type-mono-label text-[#000000]/60`
 
 ## 6 — CTA Band
 
-Surface: Full-bleed `linear-gradient(90deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%)` ~200px. No container cap.
+Surface: Full-bleed `linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%)` ~200px. No container cap.
 
 - Headline (`type-display-xl text-white`, centered): "Your EHS risk profile, benchmarked in minutes."
 - CTA group `flex gap-3 justify-center`:

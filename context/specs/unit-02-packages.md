@@ -11,6 +11,10 @@ Note: Package data inline static array — no `lib/packages.ts` yet (Unit 09).
 ## Package Data (static inline)
 
 ```ts
+// NOTE: The shape below is the original spec draft. The implemented contract
+// (app/(marketing)/packages/page.tsx) uses: name, price, priceNote, bestFor,
+// format, output, features[], cta, ctaHref, dark, stripe.
+// Align this spec to the implementation when lib/packages.ts is extracted (Unit 09).
 const packages = [
   {
     name: "EHS Snapshot",
@@ -99,7 +103,7 @@ const packages = [
 
 | # | Section | Surface |
 |---|---------|---------|
-| 1 | Hero | Dark band `bg-[#010125]` |
+| 1 | Hero | Dark band `bg-[#111111]` |
 | 2 | Package Cards | Light band `bg-white` |
 | 3 | Comparison Table | Light band `bg-white` |
 | 4 | FAQ | Light band `bg-white` |
@@ -109,7 +113,7 @@ const packages = [
 
 ## 1 — Hero
 
-Surface: `bg-[#010125] py-20`
+Surface: `bg-[#111111] py-20`
 Layout: Single column, `max-w-[1280px] mx-auto px-6`, copy centered or left-aligned (left per design rules)
 
 - Eyebrow: `/ PACKAGES` — `type-mono-eyebrow text-[#959494]`
@@ -129,16 +133,13 @@ Layout: 4-up desktop → 2-up tablet → 1-up mobile
 
 **Card rendering rules:**
 - Standard cards: `bg-white border border-[#E8E8E8] rounded-sm p-6`
-- Dark card (`dark: true` — EHS Reality Check): `bg-canvas-dark rounded-sm p-6` (polarity-flipped, per design pricing tier pattern)
-- Package name: `type-mono-label text-[#959494] mb-3`
-- Price: `type-display-lg mb-1` — `text-[#000000]` (standard) or `text-white` (dark)
-- Price note: `type-caption mb-4` — `text-[#959494]` (standard) or `text-white/40` (dark)
-- Best for: `type-body-md mb-6` — `text-[#959494]` (standard) or `text-white/60` (dark)
-- Features list: `type-mono-label flex items-center gap-2` with bullet dots — `text-[#959494]` (standard) or `text-white/60` (dark)
-- Bullet dots: `w-1 h-1 rounded-full` — `bg-[#959494]` (standard) or `bg-[#9259FD]` (dark)
-- Format/Output section: `border-t` — `border-[#E8E8E8]` (standard) or `border-[#26263A]` (dark)
-- Format & Output labels: `type-mono-label` — `text-[#959494]` (standard) or `text-white/40` (dark)
-- CTA: primary `bg-[#9259FD] text-white` for packages with Stripe, ghost-dark `bg-surface-dark-soft text-white` for contact packages
+- Featured card (`dark: true` — EHS Reality Check): `bg-[#111111] rounded-sm p-6` (polarity-flipped, per design pricing tier pattern)
+- Package name: `type-mono-label text-[#959494] mb-2`
+- Price: `type-display-lg text-[#000000]` (standard) or `type-display-lg text-white` (featured)
+- Best for: `type-body-md text-[#959494]` (standard) or `type-body-md text-white/60` (featured)
+- Format badge: `bg-[#E8E8E8] text-[#000000] type-mono-label rounded-sm px-2 py-0.5` (standard) or `bg-[#313641] text-white type-mono-label rounded-sm px-2 py-0.5` (featured)
+- Deliverables: `type-body-md text-[#959494]` (standard) or `type-body-md text-white/60` (featured), `border-t border-[#E8E8E8]` (standard) or `border-t border-[#26263A]` (featured) dividers
+- CTA: primary `bg-[#CB3CFF] text-white` for GET STARTED, ghost-dark `bg-[#313641] text-white` for LET'S TALK
 
 ---
 
@@ -194,7 +195,7 @@ Answer: `type-body-md text-[#959494] mt-2`
 
 ## 5 — CTA Band
 
-Surface: Full-bleed `linear-gradient(90deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%)` ~200px.
+Surface: Full-bleed `linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%)` ~200px.
 
 - Headline (`type-display-xl text-white`, centered): "Pick a package. Start seeing clearly."
 - CTA group `flex gap-3 justify-center`:

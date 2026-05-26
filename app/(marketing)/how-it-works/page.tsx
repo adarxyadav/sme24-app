@@ -42,13 +42,13 @@ export default function HowItWorksPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white py-20 border-b border-[#E8E8E8]">
+      <section className="bg-canvas py-20 border-b border-[#E8E8E8]">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="type-mono-eyebrow text-[#959494] mb-4">/ How it works</p>
+          <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">/ How it works</p>
           <h1 className="type-display-xxl text-[#000000] mb-6">
             From company name to benchmarked proposal
           </h1>
-          <p className="type-body-lg text-[#959494] max-w-2xl">
+          <p className="type-body-lg text-[#2b2b2b] max-w-2xl">
             Four steps. AI-powered research. Senior expert delivery. No
             workshops before you decide.
           </p>
@@ -56,7 +56,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* Steps */}
-      <section className="bg-white py-20">
+      <section className="bg-canvas py-20">
         <div className="max-w-7xl mx-auto px-6">
           {steps.map(({ number, title, body, detail }, i) => (
             <div
@@ -66,14 +66,14 @@ export default function HowItWorksPage() {
               }`}
             >
               <div>
-                <p className="type-mono-eyebrow text-[#959494] mb-4">
+                <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">
                   {number}
                 </p>
                 <h2 className="type-display-xl text-[#000000] mb-6">{title}</h2>
-                <p className="type-body-lg text-[#959494]">{body}</p>
+                <p className="type-body-lg text-[#2b2b2b]">{body}</p>
               </div>
               <div className="bg-canvas-dark rounded-sm p-8">
-                <p className="type-mono-eyebrow text-[#959494] mb-3">
+                <p className="type-mono-eyebrow text-[#2b2b2b] mb-3">
                   / Detail
                 </p>
                 <p className="type-body-md text-white/80">{detail}</p>
@@ -88,7 +88,7 @@ export default function HowItWorksPage() {
         className="py-20"
         style={{
           background:
-            "linear-gradient(90deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%)",
+            "linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%)",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 text-center">

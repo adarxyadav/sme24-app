@@ -31,7 +31,8 @@
       "Bash(git commit --amend --no-edit)",
       "Bash(git branch --list *)",
       "Bash(git branch --show-current)",
-      "Bash(mkdir -p context/specs)"
+      "Bash(mkdir -p context/specs)",
+      "Bash(git rebase *)"
     ],
     "additionalDirectories": [
       "/var/folders/tp/3dkn3cvj11n80msm2xlc0sv00000gn/T",

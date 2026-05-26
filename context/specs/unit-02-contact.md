@@ -12,7 +12,7 @@ Note: Server action stubs console.log + returns success. Resend integration defe
 
 | # | Section | Surface |
 |---|---------|---------|
-| 1 | Hero | Dark band `bg-[#010125]` |
+| 1 | Hero | Dark band `bg-[#111111]` |
 | 2 | Contact Form | Light band `bg-white` |
 | 3 | Expert Applications | Light band `bg-white` |
 | 4 | CTA band | Full-bleed gradient strip |
@@ -21,7 +21,7 @@ Note: Server action stubs console.log + returns success. Resend integration defe
 
 ## 1 — Hero
 
-Surface: `bg-[#010125] py-20`
+Surface: `bg-[#111111] py-20`
 Layout: Single column, `max-w-[1280px] mx-auto px-6`
 
 - Eyebrow: `/ CONTACT` — `type-mono-eyebrow text-[#959494]`
@@ -47,9 +47,9 @@ Fields:
 - Industry — `<select required>` — options: Chemicals | Manufacturing | Mining | Pharma | Energy | Industrial Operations | Other
 - Message — `<textarea rows={5} required>`
 
-Input style: `border border-[#E8E8E8] rounded-sm px-4 py-3 type-body-md w-full focus:border-[#9259FD] focus:outline-none`
+Input style: `border border-[#E8E8E8] rounded-sm px-4 py-3 type-body-md w-full focus:border-[#CB3CFF] focus:outline-none`
 Label: `type-mono-label text-[#000000] mb-1 block`
-Submit: `bg-[#9259FD] text-white type-mono-button rounded-sm px-6 py-3 w-full`
+Submit: `bg-[#CB3CFF] text-white type-mono-button rounded-sm px-6 py-3 w-full`
 
 Success state: replace form with `type-display-md text-[#000000]` — "Message received. We'll be in touch within one business day."
 
@@ -60,11 +60,10 @@ Error state: `type-body-md text-[#DC2626]` below submit — "Something went wron
 'use server'
 export async function submitContactForm(formData: FormData) {
   // TODO: wire Resend in Unit 11
-  // Do not log PII (name, email, message) in production
-  console.log('contact form submitted', {
-    fields: Array.from(formData.keys()),
-    hasMessage: Boolean(formData.get('message'))
-  })
+  // Do not log PII (name, email, message). Dev-only log omits values:
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('contact form submitted', { fields: Array.from(formData.keys()) })
+  }
   return { success: true }
 }
 ```
@@ -93,7 +92,7 @@ Layout: Two-column desktop `lg:grid-cols-2 gap-12` → stacked mobile
 - Eyebrow: `/ APPLY AS EXPERT` — `type-mono-eyebrow text-[#959494]`
 - Headline (`type-display-xl text-[#000000]`): "Join the expert network."
 - Body (`type-body-lg text-[#959494]`): "SME24 works exclusively with senior operators who have delivered real transformation programs. If you have deep EHS expertise in a regulated industry, we want to hear from you."
-- CTA: "APPLY NOW" → `/auth/signup` — `bg-[#9259FD] text-white` button
+- CTA: "APPLY NOW" → `/auth/signup` — `bg-[#CB3CFF] text-white` button
 
 Note: Expert application flow is built in Unit 05. This CTA links to `/auth/signup` for now; update to `/expert/apply` in Unit 05.
 
@@ -109,7 +108,7 @@ Tag style: `border border-[#E8E8E8] rounded-sm px-4 py-2 type-mono-label text-[#
 
 ## 4 — CTA Band
 
-Surface: Full-bleed `linear-gradient(90deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%)` ~200px.
+Surface: Full-bleed `linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%)` ~200px.
 
 - Headline (`type-display-xl text-white`, centered): "Operational clarity starts with one question."
 - CTA group `flex gap-3 justify-center`:

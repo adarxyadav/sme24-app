@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const packages = [
   {
-    name: "EHS Snapshot",
+    name: "Snapshot",
     price: "CHF 2,000",
     priceNote: "fixed price",
     bestFor: "Quick visibility",
@@ -28,7 +28,7 @@ const packages = [
     stripe: true,
   },
   {
-    name: "EHS Reality Check",
+    name: "Reality Check",
     price: "CHF 5,000",
     priceNote: "fixed price",
     bestFor: "Validate real risks",
@@ -48,7 +48,7 @@ const packages = [
     stripe: true,
   },
   {
-    name: "EHS Transformation Plan",
+    name: "Transformation Plan",
     price: "CHF 10,000",
     priceNote: "fixed price",
     bestFor: "Fix systematically",
@@ -68,7 +68,7 @@ const packages = [
     stripe: true,
   },
   {
-    name: "EHS Execution Partner",
+    name: "Execution Partner",
     price: "CHF 10,000",
     priceNote: "+ CHF 1,850 / day ongoing",
     bestFor: "Deliver results",
@@ -144,13 +144,13 @@ export default function PackagesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white py-20 border-b border-[#E8E8E8]">
+      <section className="bg-canvas py-20 border-b border-[#E8E8E8]">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="type-mono-eyebrow text-[#959494] mb-4">/ Packages</p>
+          <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">/ Packages</p>
           <h1 className="type-display-xxl text-[#000000] mb-6">
             Fixed prices. No retainer.
           </h1>
-          <p className="type-body-lg text-[#959494] max-w-2xl">
+          <p className="type-body-lg text-[#2b2b2b] max-w-2xl">
             Four packages. Three via Stripe checkout. One via contact form for
             ongoing engagements. No surprise invoices.
           </p>
@@ -158,7 +158,7 @@ export default function PackagesPage() {
       </section>
 
       {/* Package cards */}
-      <section className="bg-white py-20">
+      <section className="bg-canvas py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {packages.map(
@@ -179,10 +179,10 @@ export default function PackagesPage() {
                   className={`rounded-sm p-6 flex flex-col ${
                     dark
                       ? "bg-canvas-dark"
-                      : "bg-white border border-[#E8E8E8]"
+                      : "bg-canvas border border-[#E8E8E8]"
                   }`}
                 >
-                  <p className="type-mono-label text-[#959494] mb-3">{name}</p>
+                  <p className="type-mono-label text-[#2b2b2b] mb-3">{name}</p>
                   <p
                     className={`type-display-lg mb-1 ${
                       dark ? "text-white" : "text-[#000000]"
@@ -192,14 +192,14 @@ export default function PackagesPage() {
                   </p>
                   <p
                     className={`type-caption mb-4 ${
-                      dark ? "text-white/40" : "text-[#959494]"
+                      dark ? "text-white/40" : "text-[#2b2b2b]"
                     }`}
                   >
                     {priceNote}
                   </p>
                   <p
                     className={`type-body-md mb-6 ${
-                      dark ? "text-white/60" : "text-[#959494]"
+                      dark ? "text-white/60" : "text-[#2b2b2b]"
                     }`}
                   >
                     {bestFor}
@@ -209,12 +209,12 @@ export default function PackagesPage() {
                       <li
                         key={f}
                         className={`type-mono-label flex items-center gap-2 ${
-                          dark ? "text-white/60" : "text-[#959494]"
+                          dark ? "text-white/60" : "text-[#2b2b2b]"
                         }`}
                       >
                         <span
                           className={`w-1 h-1 rounded-full shrink-0 ${
-                            dark ? "bg-[#9259FD]" : "bg-[#959494]"
+                            dark ? "bg-[#CB3CFF]" : "bg-[#959494]"
                           }`}
                         />
                         {f}
@@ -228,14 +228,14 @@ export default function PackagesPage() {
                   >
                     <p
                       className={`type-mono-label ${
-                        dark ? "text-white/40" : "text-[#959494]"
+                        dark ? "text-white/40" : "text-[#2b2b2b]"
                       }`}
                     >
                       {format}
                     </p>
                     <p
                       className={`type-mono-label ${
-                        dark ? "text-white/40" : "text-[#959494]"
+                        dark ? "text-white/40" : "text-[#2b2b2b]"
                       }`}
                     >
                       {output}
@@ -245,7 +245,7 @@ export default function PackagesPage() {
                       className={`mt-3 type-mono-button px-6 py-2 rounded-sm text-center block ${
                         ctaHref === "/contact"
                           ? "bg-surface-dark-soft text-white"
-                          : "bg-[#9259FD] text-white"
+                          : "bg-[#CB3CFF] text-white"
                       }`}
                     >
                       {cta}
@@ -259,9 +259,9 @@ export default function PackagesPage() {
       </section>
 
       {/* Comparison table */}
-      <section className="bg-white py-20 border-t border-[#E8E8E8]">
+      <section className="bg-canvas py-20 border-t border-[#E8E8E8]">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="type-mono-eyebrow text-[#959494] mb-4">/ Compare</p>
+          <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">/ Compare</p>
           <h2 className="type-display-xl text-[#000000] mb-12">
             What&apos;s included
           </h2>
@@ -269,53 +269,51 @@ export default function PackagesPage() {
             <table className="w-full">
               <thead>
                 <tr className="bg-[#E8E8E8]">
-                  <th className="type-mono-label text-[#959494] px-4 py-3 text-left">
+                  <th className="type-mono-label text-[#2b2b2b] px-4 py-3 text-left">
                     Feature
                   </th>
-                  <th className="type-mono-label text-[#959494] px-4 py-3 text-center">
+                  <th className="type-mono-label text-[#2b2b2b] px-4 py-3 text-center">
                     Snapshot
                   </th>
-                  <th className="type-mono-label text-[#959494] px-4 py-3 text-center">
+                  <th className="type-mono-label text-[#2b2b2b] px-4 py-3 text-center">
                     Reality Check
                   </th>
-                  <th className="type-mono-label text-[#959494] px-4 py-3 text-center">
+                  <th className="type-mono-label text-[#2b2b2b] px-4 py-3 text-center">
                     Transformation
                   </th>
-                  <th className="type-mono-label text-[#959494] px-4 py-3 text-center">
+                  <th className="type-mono-label text-[#2b2b2b] px-4 py-3 text-center">
                     Execution
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {comparison.map(
-                  ({
-                    feature,
-                    snapshot,
-                    reality,
-                    transformation,
-                    execution,
-                  }) => (
+                {comparison.map(({ feature, snapshot, reality, transformation, execution }) => {
+                  const cols = [
+                    { id: "snapshot", val: snapshot },
+                    { id: "reality", val: reality },
+                    { id: "transformation", val: transformation },
+                    { id: "execution", val: execution },
+                  ];
+                  return (
                     <tr key={feature} className="border-b border-[#E8E8E8]">
                       <td className="type-body-md text-[#000000] px-4 py-3.5">
                         {feature}
                       </td>
-                      {[snapshot, reality, transformation, execution].map(
-                        (val, i) => (
-                          <td
-                            key={i}
-                            className="type-mono-label px-4 py-3.5 text-center"
-                          >
-                            {val ? (
-                              <span className="text-[#9259FD]">✓</span>
-                            ) : (
-                              <span className="text-[#E8E8E8]">—</span>
-                            )}
-                          </td>
-                        )
-                      )}
+                      {cols.map(({ id, val }) => (
+                        <td
+                          key={id}
+                          className="type-mono-label px-4 py-3.5 text-center"
+                        >
+                          {val ? (
+                            <span className="text-[#CB3CFF]">✓</span>
+                          ) : (
+                            <span className="text-[#E8E8E8]">—</span>
+                          )}
+                        </td>
+                      ))}
                     </tr>
-                  )
-                )}
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -327,7 +325,7 @@ export default function PackagesPage() {
         className="py-20"
         style={{
           background:
-            "linear-gradient(90deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%)",
+            "linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%)",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 text-center">

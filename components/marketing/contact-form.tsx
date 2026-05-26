@@ -9,7 +9,7 @@ import {
 const initial: ContactFormState = { status: "idle" };
 
 const inputClass =
-  "type-body-md border border-[#E8E8E8] rounded-sm px-4 py-3 bg-white text-[#000000] focus:outline-none focus:border-[#9259FD] transition-colors w-full";
+  "type-body-md border border-[#E8E8E8] rounded-sm px-4 py-3 bg-white text-[#000000] focus:outline-none focus:border-[#CB3CFF] transition-colors w-full";
 
 export function ContactForm() {
   const [state, action, pending] = useActionState(submitContactForm, initial);
@@ -17,7 +17,7 @@ export function ContactForm() {
   if (state.status === "success") {
     return (
       <div className="bg-[#E8DDFF] rounded-sm p-8">
-        <p className="type-mono-eyebrow text-[#9259FD] mb-3">/ Message sent</p>
+        <p className="type-mono-eyebrow text-[#CB3CFF] mb-3">/ Message sent</p>
         <p className="type-body-lg text-[#000000]">{state.message}</p>
       </div>
     );
@@ -27,7 +27,7 @@ export function ContactForm() {
     <form action={action} className="flex flex-col gap-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
-          <label htmlFor="name" className="type-mono-label text-[#959494]">
+          <label htmlFor="name" className="type-mono-label text-[#2b2b2b]">
             Name
           </label>
           <input
@@ -40,7 +40,7 @@ export function ContactForm() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="type-mono-label text-[#959494]">
+          <label htmlFor="email" className="type-mono-label text-[#2b2b2b]">
             Email
           </label>
           <input
@@ -55,7 +55,7 @@ export function ContactForm() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="company" className="type-mono-label text-[#959494]">
+        <label htmlFor="company" className="type-mono-label text-[#2b2b2b]">
           Company
         </label>
         <input
@@ -68,7 +68,7 @@ export function ContactForm() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="message" className="type-mono-label text-[#959494]">
+        <label htmlFor="message" className="type-mono-label text-[#2b2b2b]">
           Message
         </label>
         <textarea
@@ -88,7 +88,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="type-mono-button bg-[#9259FD] text-white px-6 py-3 rounded-sm self-start disabled:opacity-60 transition-opacity"
+        className="type-mono-button bg-[#CB3CFF] text-white px-6 py-3 rounded-sm self-start disabled:opacity-60 transition-opacity"
       >
         {pending ? "Sending..." : "Send message"}
       </button>

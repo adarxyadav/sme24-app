@@ -10,9 +10,9 @@ AI-powered EHS consulting marketplace. Technical, blueprint-style design inspire
 
 **Surface rhythm, not shadow.** Near-black hero band → white content bands → optional dark feature band → white footer. Surface alternation carries depth; hairline borders carry card elevation. No floating card shadows on light surfaces.
 
-**One signature element.** A three-stop brand gradient (`#9259FD` → `#EF5CC1` → `#FC4C02`) is the entire decorative system — violet to magenta to orange. Used only at hero scale (≥ 400px wide) as the full-bleed gradient strip or flowing mesh. Never miniaturised; never reordered; never extended with a fourth stop.
+**One signature element.** A three-stop brand gradient (`#CB3CFF` → `#EF5CC1` → `#FC4C02`) is the entire decorative system — violet to magenta to orange. Used only at hero scale (≥ 400px wide) as the full-bleed gradient strip or flowing mesh. Never miniaturised; never reordered; never extended with a fourth stop.
 
-**One primary CTA.** Brand violet (`#9259FD`) carries every conversion target on light surfaces. One primary per viewport.
+**One primary CTA.** Brand violet (`#CB3CFF`) carries every conversion target on light surfaces. One primary per viewport.
 
 ---
 
@@ -23,15 +23,15 @@ AI-powered EHS consulting marketplace. Technical, blueprint-style design inspire
 | Role | CSS Variable | Value |
 |---|---|---|
 | Headings / text on light | `--color-ink` | `#000000` |
-| Primary CTA fill | `--color-primary` | `#9259FD` |
-| Default page bg | `--color-canvas` | `#FFFFFF` |
+| Primary CTA fill | `--color-primary` | `#CB3CFF` |
+| Default page bg | `--color-canvas` | `#F7F7F9` |
 | Hairline / canvas soft | `--color-hairline` | `#E8E8E8` |
-| Hero / dark band bg | `--color-canvas-dark` | `#010125` |
+| Hero / dark band bg | `--color-canvas-dark` | `#111111` |
 | Dividers on canvas-dark | `--color-hairline-dark` | `#26263A` |
 | Inner dark cards / ghost buttons | `--color-surface-dark-soft` | `#313641` |
-| Secondary text on light | `--color-body` | `#666666` |
-| All text on dark | `--color-on-dark` | `#FFFFFF` |
-| Gradient stop 1 — primary violet | `--color-brand-violet` | `#9259FD` |
+| Secondary text on light | `--color-body` | `#2b2b2b` |
+| All text on dark | `--color-on-dark` | `#F7F7F9` |
+| Gradient stop 1 — primary violet | `--color-brand-violet` | `#CB3CFF` |
 | Gradient stop 2 — magenta | `--color-brand-magenta` | `#EF5CC1` |
 | Gradient stop 3 — tertiary orange | `--color-brand-orange` | `#FC4C02` |
 | Hero secondary CTA / stat tiles | `--color-accent-mint` | `#CBF6F9` |
@@ -44,7 +44,7 @@ AI-powered EHS consulting marketplace. Technical, blueprint-style design inspire
 ### Brand Gradient
 
 ```css
-background: linear-gradient(90deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%);
+background: linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%);
 ```
 
 Three stops, fixed order. Violet → Magenta → Orange. Used only at hero scale as a full-width gradient band or as the right-column mesh in hero sections. Never as text fill, button fill, badge, or icon. Never reordered, never cropped to a single color, never extended.
@@ -53,9 +53,9 @@ Three stops, fixed order. Violet → Magenta → Orange. Used only at hero scale
 
 | Context | Button style |
 |---|---|
-| Light surfaces (most pages) | `bg-[#9259FD] text-white` — brand violet |
+| Light surfaces (most pages) | `bg-[#CB3CFF] text-white` — brand violet |
 | Secondary on dark hero (adjacent to primary) | `bg-[#CBF6F9] text-[#000000]` — mint pill |
-| Secondary on light hero | `bg-[#FFFFFF] text-[#000000]` — white pill |
+| Secondary on light hero | `bg-[#F7F7F9] text-[#000000]` — white pill |
 | Ghost on dark band | `bg-[#313641] text-white` — surface-dark-soft fill |
 | Outline (forms, filters, secondary actions) | `border border-[#E8E8E8] bg-transparent text-[#000000]` |
 
@@ -91,7 +91,7 @@ Geist Mono at weight 500, always uppercase, small positive letter-spacing. 10–
 | `type-caption` | 14px | 400 | 19.6px | — | Fine print, secondary captions |
 | `type-caption-strong` | 14px | 500 | 19.6px | — | Bolded caption emphasis |
 
-### Mono-Caps Scale (PP Neue Montreal Mono, weight 500, uppercase)
+### Mono-Caps Scale (Geist Mono, weight 500, uppercase)
 
 | Utility class | Size | Line-height | Letter-spacing | Use |
 |---|---|---|---|---|
@@ -103,7 +103,7 @@ Geist Mono at weight 500, always uppercase, small positive letter-spacing. 10–
 ### Rules
 
 - **Headlines sentence-case.** "From company name to benchmarked proposal" — never "FROM COMPANY…".
-- **Mono is labels only.** No paragraph ever runs in PP Neue Montreal Mono.
+- **Mono is labels only.** No paragraph ever runs in Geist Mono.
 - **Negative letter-spacing on Urbanist only.** Mono uses small positive tracking.
 - **Weight 500 is the ceiling for Urbanist.** Never bold (700+) at display sizes.
 - **Left-align within a copy stack.** Headline → body → CTA, all left.
@@ -114,15 +114,15 @@ Geist Mono at weight 500, always uppercase, small positive letter-spacing. 10–
 
 Every page cycles through exactly two surfaces.
 
-```
+```text
 ┌─────────────────────────────────────────┐
-│  DARK BAND   bg-[#010125]               │  ← hero
+│  DARK BAND   bg-[#111111]               │  ← hero
 ├─────────────────────────────────────────┤
 │  LIGHT BAND  bg-white                   │  ← product, pricing, experts
 ├─────────────────────────────────────────┤
 │  GRADIENT STRIP (full-bleed, ~120px)    │  ← brand signature, section sign-off
 ├─────────────────────────────────────────┤
-│  DARK BAND   bg-[#010125]  (optional)   │  ← AI credibility, stats band
+│  DARK BAND   bg-[#111111]  (optional)   │  ← AI credibility, stats band
 ├─────────────────────────────────────────┤
 │  LIGHT BAND  bg-white                   │  ← footer
 │  + sme24.ch wordmark banner (hairline)  │
@@ -185,12 +185,12 @@ Light-surface cards lean on hairlines, not shadow. The single soft-drop shadow t
 
 ### Button
 
-All buttons: `type-mono-button` label (PP Neue Montreal Mono 500 14px uppercase). Shape: `radius-sm` (4px). No shadow.
+All buttons: `type-mono-button` label (Geist Mono 500 14px uppercase). Shape: `radius-sm` (4px). No shadow.
 
-```
-Primary:          bg-[#9259FD] text-white          px-6 py-2 radius-sm
+```text
+Primary:          bg-[#CB3CFF] text-white          px-6 py-2 radius-sm
 Secondary Mint:   bg-[#CBF6F9] text-[#000000]      px-6 py-2 radius-sm   ← hero-only
-Secondary White:  bg-[#FFFFFF] text-[#000000]      px-6 py-2 radius-sm   ← hero-only
+Secondary White:  bg-[#F7F7F9] text-[#000000]      px-6 py-2 radius-sm   ← hero-only
 Ghost on dark:    bg-[#313641] text-white           px-6 py-2 radius-sm
 Outline:          border border-[#E8E8E8] bg-transparent text-[#000000] px-6 py-2 radius-xs (3.25px)
 Icon circular:    bg-[#000000] text-white rounded-full w-10 h-10         ← chat-launcher only
@@ -235,7 +235,7 @@ Eyebrow always in `text-[#666666]` (body color) — both light and dark bands. B
 ### Article card (gradient fill)
 
 ```html
-<div class="rounded-sm overflow-hidden" style="background: linear-gradient(135deg, #9259FD, #EF5CC1, #FC4C02);">
+<div class="rounded-sm overflow-hidden" style="background: linear-gradient(135deg, #CB3CFF, #EF5CC1, #FC4C02);">
   <div class="p-6 pt-24">
     <p class="type-mono-label text-white/70 mb-2">Product Update</p>
     <h3 class="type-display-md text-white">Headline here.</h3>
@@ -269,7 +269,7 @@ Three tint variants. Mono-caps label below the number.
 
 ### Badge
 
-```
+```text
 Light surface neutral: bg-[#E8E8E8] text-[#000000] rounded-sm px-2 py-0.5 type-mono-label
 Light surface subtle:  bg-white border border-[#E8E8E8] text-[#000000] rounded-sm px-2 py-0.5 type-mono-label
 On dark:               bg-[#313641] text-white rounded-sm px-2 py-0.5 type-mono-label
@@ -342,9 +342,9 @@ Three-up grid. Middle tier polarity-flipped (dark card). Mono uppercase tier nam
 
 ### Nav
 
-```
+```text
 Sticky:           sticky top-0 z-50 border-b border-[#E8E8E8] backdrop-blur-sm
-On dark hero:     bg-[#010125]/90 text-white
+On dark hero:     bg-[#111111]/90 text-white
 After scroll:     bg-white/90 text-[#000000]
 ```
 
@@ -360,12 +360,12 @@ Link labels: `type-mono-label` uppercase. CTA pill: ink on light, ghost-dark on 
       <h1 class="type-display-xxl text-white mb-6">From company name to expert proposal in minutes</h1>
       <p class="type-body-lg text-white/60 mb-8">Lead paragraph copy.</p>
       <div class="flex gap-3">
-        <button class="type-mono-button bg-[#9259FD] text-white rounded-sm px-6 py-3">Start assessment</button>
+        <button class="type-mono-button bg-[#CB3CFF] text-white rounded-sm px-6 py-3">Start assessment</button>
         <button class="type-mono-button bg-[#CBF6F9] text-[#000000] rounded-sm px-6 py-3">Watch the announcement</button>
       </div>
     </div>
     <div>
-      <!-- Brand gradient: #9259FD → #EF5CC1 → #FC4C02, blur 40px, mix-blend-mode screen -->
+      <!-- Brand gradient: #CB3CFF → #EF5CC1 → #FC4C02, blur 40px, mix-blend-mode screen -->
     </div>
   </div>
 </section>
@@ -376,22 +376,10 @@ Link labels: `type-mono-label` uppercase. CTA pill: ink on light, ghost-dark on 
 Full-width strip or right-column mesh. Three-stop horizontal linear gradient:
 
 ```css
-background: linear-gradient(90deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%);
+background: linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%);
 ```
 
-As mesh: three overlapping blurred radial gradients on `bg-[#010125]` canvas with `mix-blend-mode: screen`. Minimum rendered width 400px. Never used at icon scale, never as text-fill, never reordered.
-
-### Footer wordmark banner
-
-```html
-<div class="border-t border-[#E8E8E8] overflow-hidden">
-  <p style="font-family: var(--font-sans); font-size: clamp(4rem,12vw,10rem); font-weight:500; color:#E8E8E8; white-space:nowrap; line-height:1; padding:1rem 1.5rem;">
-    sme24.ch
-  </p>
-</div>
-```
-
-Tinted to `#E8E8E8` — faint stencil sign-off. Never a heavy footer title.
+As mesh: three overlapping blurred radial gradients on `bg-[#111111]` canvas with `mix-blend-mode: screen`. Minimum rendered width 400px. Never used at icon scale, never as text-fill, never reordered.
 
 ---
 
@@ -427,14 +415,13 @@ Grid patterns:
 ### Do
 - Use `type-mono-*` for **every** label: eyebrows, buttons, table headers, badge text, pricing tabs.
 - Apply negative letter-spacing on every Urbanist headline.
-- Alternate surfaces using only `bg-[#010125]` and `bg-white`.
+- Alternate surfaces using only `bg-[#111111]` and `bg-white`.
 - Use `radius-sm` (4px) for every card, button, badge, and input. `radius-xs` (3.25px) for outline buttons and pricing sub-tabs.
 - Keep the brand gradient as a single hero-scale graphic only.
-- Place `sme24.ch` wordmark at the bottom of every marketing page, tinted hairline.
 - One primary CTA per viewport.
 
 ### Don't
-- Don't set body copy in PP Neue Montreal Mono.
+- Don't set body copy in Geist Mono.
 - Don't write a headline in uppercase — that's the mono face's role.
 - Don't add drop shadows to light-surface cards. Hairlines + surface contrast are enough.
 - Don't add a new accent color. Palette is: ink black, brand violet (primary), magenta, orange (tertiary) gradient, accent mint, violet tint, peach tint, hairline grey, semantic status.

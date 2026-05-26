@@ -12,7 +12,7 @@ Note: All expert cards are static for Unit 02. Live directory data wired in Unit
 
 | # | Section | Surface |
 |---|---------|---------|
-| 1 | Hero | Dark band `bg-[#010125]` |
+| 1 | Hero | Dark band `bg-[#111111]` |
 | 2 | Expert Categories | Light band `bg-white` |
 | 3 | Expert Cards | Light band `bg-white` |
 | 4 | Engagement Process | Light band `bg-white` |
@@ -22,7 +22,7 @@ Note: All expert cards are static for Unit 02. Live directory data wired in Unit
 
 ## 1 — Hero
 
-Surface: `bg-[#010125] py-20`
+Surface: `bg-[#111111] py-20`
 Layout: `grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`
 
 **Left column:**
@@ -30,7 +30,7 @@ Layout: `grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`
 - Headline (`type-display-xxl text-white`): "Operators. Not presenters."
 - Sub-headline (`type-body-lg text-white/60`): "Every SME24 expert has delivered transformation programs at industrial scale. No associate model. No junior delivery. Senior operators only."
 - CTA group `flex gap-3`:
-  - Primary: "APPLY AS EXPERT" → `/contact` — `bg-[#9259FD] text-white`
+  - Primary: "APPLY AS EXPERT" → `/contact` — `bg-[#CB3CFF] text-white`
   - Secondary: "GET YOUR BENCHMARK" → `/auth/signup` — `bg-[#CBF6F9] text-[#000000]`
 
 **Right column:** Brand gradient mesh (same implementation as homepage hero).
@@ -48,6 +48,7 @@ Layout: 7-tag flex-wrap row, centered, `gap-3`
 Tags (hairline badge style `border border-[#E8E8E8] rounded-sm px-4 py-2 type-mono-label text-[#000000]`):
 - PROCESS SAFETY
 - SAFETY LEADERSHIP
+- SAFETY CULTURE
 - OPERATIONAL EXCELLENCE
 - ASSET INTEGRITY
 - EXPLOSION PROTECTION
@@ -63,8 +64,8 @@ Layout: 3-up desktop → 2-up tablet → 1-up mobile
 
 - Eyebrow: `/ SENIOR OPERATORS` — `type-mono-eyebrow text-[#959494]`
 - Headline (`type-display-xl text-[#000000]`): "Senior operators. Not presenters."
-- Section CTA below grid: "EXPLORE ALL EXPERTS" → `/experts` — outline button `border border-[#E8E8E8]`
-  (Note: this is the same page — in Unit 06 this will link to the live directory. For now, remove or point to `/contact`)
+- Section CTA below grid: "EXPLORE ALL EXPERTS" → `/contact` — outline button `border border-[#E8E8E8]`
+  (Note: links to `/contact` for now; Unit 06 updates to live directory `/experts` filtered view)
 
 **3 static expert cards** (same pattern as homepage expert preview, Unit 06 replaces with live data):
 
@@ -81,7 +82,7 @@ Card structure per `design.md` light card pattern:
 - Badge: `bg-[#E8E8E8] text-[#000000] type-mono-label rounded-sm px-2 py-0.5`
 - Card: `bg-white border border-[#E8E8E8] rounded-sm p-6`
 
-Section CTA: "REQUEST EXPERT MATCH" → `/contact` — `bg-[#9259FD] text-white` button, centered below grid.
+Section CTA: "REQUEST EXPERT MATCH" → `/contact` — `bg-[#CB3CFF] text-white` button, centered below grid.
 
 ---
 
@@ -106,7 +107,7 @@ Each step: eyebrow `type-mono-eyebrow text-[#959494]`, title `type-display-md te
 
 ## 5 — CTA Band
 
-Surface: Full-bleed `linear-gradient(90deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%)` ~200px.
+Surface: Full-bleed `linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%)` ~200px.
 
 - Headline (`type-display-xl text-white`, centered): "The right expert for your exact risk profile."
 - CTA group `flex gap-3 justify-center`:

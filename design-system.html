@@ -11,15 +11,15 @@
     /* ─── Tokens ─── */
     :root {
       --color-ink:               #000000;
-      --color-primary:           #9259FD;
-      --color-canvas:            #FFFFFF;
+      --color-primary:           #CB3CFF;
+      --color-canvas:            #F7F7F9;
       --color-hairline:          #E8E8E8;
-      --color-canvas-dark:       #010125;
+      --color-canvas-dark:       #111111;
       --color-hairline-dark:     #26263A;
       --color-surface-dark-soft: #313641;
       --color-body:              #959494;
-      --color-on-dark:           #FFFFFF;
-      --color-brand-violet:      #9259FD;
+      --color-on-dark:           #F7F7F9;
+      --color-brand-violet:      #CB3CFF;
       --color-brand-magenta:     #EF5CC1;
       --color-brand-orange:      #FC4C02;
       --color-accent-mint:       #CBF6F9;
@@ -30,7 +30,7 @@
       --color-danger:            #DC2626;
       --font-sans: 'Urbanist', system-ui, sans-serif;
       --font-mono: 'PP Neue Montreal Mono', 'Geist Mono', monospace;
-      --brand-gradient: linear-gradient(90deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%);
+      --brand-gradient: linear-gradient(90deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%);
     }
 
     /* ─── Reset ─── */
@@ -305,10 +305,10 @@
           </div>
         </div>
         <div class="swatch-card">
-          <div class="swatch-card-color" style="background:#9259FD;"></div>
+          <div class="swatch-card-color" style="background:#CB3CFF;"></div>
           <div class="swatch-card-info">
             <p class="swatch-card-name">Brand Violet</p>
-            <p class="swatch-card-hex">#9259FD</p>
+            <p class="swatch-card-hex">#CB3CFF</p>
             <p class="swatch-card-desc">Primary CTA fill. First stop of the brand gradient.</p>
           </div>
         </div>
@@ -349,10 +349,10 @@
       <p class="type-mono-eyebrow" style="color:var(--color-body); margin-bottom:20px;">/ Surface</p>
       <div class="swatch-card-grid" style="margin-bottom:48px;">
         <div class="swatch-card">
-          <div class="swatch-card-color" style="background:#FFFFFF; border-bottom:1px solid var(--color-hairline);"></div>
+          <div class="swatch-card-color" style="background:#F7F7F9; border-bottom:1px solid var(--color-hairline);"></div>
           <div class="swatch-card-info">
             <p class="swatch-card-name">Canvas</p>
-            <p class="swatch-card-hex">#FFFFFF</p>
+            <p class="swatch-card-hex">#F7F7F9</p>
             <p class="swatch-card-desc">Default page background.</p>
           </div>
         </div>
@@ -365,10 +365,10 @@
           </div>
         </div>
         <div class="swatch-card">
-          <div class="swatch-card-color" style="background:#010125;"></div>
+          <div class="swatch-card-color" style="background:#111111;"></div>
           <div class="swatch-card-info">
             <p class="swatch-card-name">Canvas Dark</p>
-            <p class="swatch-card-hex">#010125</p>
+            <p class="swatch-card-hex">#111111</p>
             <p class="swatch-card-desc">Hero band + dark section background.</p>
           </div>
         </div>
@@ -409,10 +409,10 @@
           </div>
         </div>
         <div class="swatch-card">
-          <div class="swatch-card-color" style="background:#FFFFFF; border-bottom:1px solid var(--color-hairline);"></div>
+          <div class="swatch-card-color" style="background:#F7F7F9; border-bottom:1px solid var(--color-hairline);"></div>
           <div class="swatch-card-info">
             <p class="swatch-card-name">On Dark</p>
-            <p class="swatch-card-hex">#FFFFFF</p>
+            <p class="swatch-card-hex">#F7F7F9</p>
             <p class="swatch-card-desc">All text on canvas-dark surfaces.</p>
           </div>
         </div>
@@ -565,7 +565,7 @@
           <div style="flex:1; display:flex; align-items:center; justify-content:center;">
             <button class="btn btn-primary">Get started now</button>
           </div>
-          <p class="type-mono-caption" style="color:var(--color-body);">Ink black fill / on-primary text / mono-caps-button label / radius 4 px.</p>
+          <p class="type-mono-caption" style="color:var(--color-body);">Violet fill (--color-primary) / on-primary text / mono-caps-button label / radius 4 px.</p>
         </div>
 
         <!-- Secondary Mint -->
@@ -608,7 +608,7 @@
         <div style="border:1px solid var(--color-hairline); border-radius:4px; padding:24px; display:flex; flex-direction:column; gap:20px;">
           <p class="type-mono-label" style="color:var(--color-body);">Button-Icon-Circular</p>
           <div style="flex:1; display:flex; align-items:center; justify-content:center;">
-            <button class="btn btn-icon-circle" style="font-size:18px;">●</button>
+            <button class="btn btn-icon-circle" style="font-size:18px;" aria-label="Open chat">●</button>
           </div>
           <p class="type-mono-caption" style="color:var(--color-body);">Floating chat-launcher orb — the only fully-pill shape in the system.</p>
         </div>
@@ -650,7 +650,7 @@
         <div style="display:flex; flex-direction:column; gap:16px;">
           <p class="type-mono-label" style="color:var(--color-body);">Article-Card</p>
           <div style="border-radius:4px; overflow:hidden; border:1px solid var(--color-hairline); display:flex; flex-direction:column;">
-            <div style="height:200px; background:linear-gradient(135deg, #9259FD 0%, #EF5CC1 50%, #FC4C02 100%);"></div>
+            <div style="height:200px; background:linear-gradient(135deg, #CB3CFF 0%, #EF5CC1 50%, #FC4C02 100%);"></div>
             <div style="padding:24px; background:var(--color-canvas); flex:1;">
               <p class="type-mono-label" style="color:var(--color-body); margin-bottom:8px;">/ Product Update</p>
               <h3 class="type-display-md" style="color:var(--color-ink); margin-bottom:8px;">Lower-latency inference is live.</h3>
@@ -906,9 +906,9 @@
       <!-- Individual stops -->
       <div class="grid-3" style="margin-bottom:48px;">
         <div>
-          <div style="height:64px; border-radius:4px; background:#9259FD; margin-bottom:8px;"></div>
+          <div style="height:64px; border-radius:4px; background:#CB3CFF; margin-bottom:8px;"></div>
           <p class="type-mono-label" style="color:rgba(255,255,255,0.7);">Primary Violet</p>
-          <p class="type-mono-caption" style="color:rgba(255,255,255,0.4);">#9259FD</p>
+          <p class="type-mono-caption" style="color:rgba(255,255,255,0.4);">#CB3CFF</p>
         </div>
         <div>
           <div style="height:64px; border-radius:4px; background:#EF5CC1; margin-bottom:8px;"></div>
@@ -931,7 +931,7 @@
           <div class="mesh-c"></div>
         </div>
         <div style="position:absolute; bottom:16px; left:16px;">
-          <span class="type-mono-caption" style="color:rgba(255,255,255,0.35);">#9259FD → #EF5CC1 → #FC4C02 · blur(50px) · mix-blend-mode: screen</span>
+          <span class="type-mono-caption" style="color:rgba(255,255,255,0.35);">#CB3CFF → #EF5CC1 → #FC4C02 · blur(50px) · mix-blend-mode: screen</span>
         </div>
       </div>
     </div>

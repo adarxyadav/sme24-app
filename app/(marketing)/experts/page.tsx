@@ -53,15 +53,15 @@ export default function ExpertsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white py-20 border-b border-[#E8E8E8]">
+      <section className="bg-canvas py-20 border-b border-[#E8E8E8]">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="type-mono-eyebrow text-[#959494] mb-4">
+          <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">
             / Expert network
           </p>
           <h1 className="type-display-xxl text-[#000000] mb-6">
             Senior operators. Not presenters.
           </h1>
-          <p className="type-body-lg text-[#959494] max-w-2xl">
+          <p className="type-body-lg text-[#2b2b2b] max-w-2xl">
             Every expert on SME24 has direct operational accountability in their
             domain. Matched to your risk profile before you commit.
           </p>
@@ -69,9 +69,9 @@ export default function ExpertsPage() {
       </section>
 
       {/* Expert cards */}
-      <section className="bg-white py-20">
+      <section className="bg-canvas py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="type-mono-eyebrow text-[#959494] mb-4">
+          <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">
             / Current network
           </p>
           <h2 className="type-display-xl text-[#000000] mb-12">
@@ -81,7 +81,7 @@ export default function ExpertsPage() {
             {experts.map(({ initials, name, category, badge, bio }) => (
               <div
                 key={name}
-                className="bg-white border border-[#E8E8E8] rounded-sm p-6"
+                className="bg-canvas border border-[#E8E8E8] rounded-sm p-6"
               >
                 <div className="w-12 h-12 rounded-full bg-[#E8DDFF] flex items-center justify-center mb-4">
                   <span className="type-mono-label text-[#000000]">
@@ -89,8 +89,8 @@ export default function ExpertsPage() {
                   </span>
                 </div>
                 <h3 className="type-display-md text-[#000000] mb-1">{name}</h3>
-                <p className="type-mono-label text-[#959494] mb-3">{category}</p>
-                <p className="type-body-md text-[#959494] mb-4">{bio}</p>
+                <p className="type-mono-label text-[#2b2b2b] mb-3">{category}</p>
+                <p className="type-body-md text-[#2b2b2b] mb-4">{bio}</p>
                 <span className="bg-[#E8E8E8] text-[#000000] type-mono-label rounded-sm px-2 py-0.5">
                   {badge}
                 </span>
@@ -101,20 +101,20 @@ export default function ExpertsPage() {
       </section>
 
       {/* Our standard */}
-      <section className="bg-white py-20 border-t border-[#E8E8E8]">
+      <section className="bg-canvas py-20 border-t border-[#E8E8E8]">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="type-mono-eyebrow text-[#959494] mb-4">/ Our standard</p>
+          <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">/ Our standard</p>
           <h2 className="type-display-xl text-[#000000] mb-12">
             The expert bar
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {criteria.map(({ number, title, body }) => (
               <div key={number}>
-                <p className="type-mono-eyebrow text-[#959494] mb-4">
+                <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">
                   {number}
                 </p>
                 <h3 className="type-display-md text-[#000000] mb-3">{title}</h3>
-                <p className="type-body-md text-[#959494]">{body}</p>
+                <p className="type-body-md text-[#2b2b2b]">{body}</p>
               </div>
             ))}
           </div>
@@ -125,7 +125,7 @@ export default function ExpertsPage() {
       <section className="bg-canvas-dark py-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="type-mono-eyebrow text-[#959494] mb-4">
+            <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">
               / Join the network
             </p>
             <h2 className="type-display-xl text-white mb-6">
@@ -138,7 +138,7 @@ export default function ExpertsPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block type-mono-button bg-[#9259FD] text-white px-6 py-3 rounded-sm"
+              className="inline-block type-mono-button bg-[#CB3CFF] text-white px-6 py-3 rounded-sm"
             >
               Apply to join
             </Link>

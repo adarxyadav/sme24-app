@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -9,7 +10,6 @@ const links = [
   { label: "How it works", href: "/how-it-works" },
   { label: "Experts", href: "/experts" },
   { label: "Packages", href: "/packages" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export function Nav() {
@@ -17,17 +17,16 @@ export function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/90 border-b border-[#E8E8E8] backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="font-sans font-medium text-base tracking-tight text-[#000000]"
-        >
-          SME24
-        </Link>
+    <nav className="sticky top-0 z-50 bg-canvas/90 border-b border-[#E8E8E8] backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center">
+        {/* Logo — flex-1 so it mirrors the CTA column width */}
+        <div className="flex-1">
+          <Link href="/" className="inline-flex items-center">
+            <Image src="/logo.svg" alt="SME24" width={36} height={36} priority />
+          </Link>
+        </div>
 
-        {/* Desktop nav links */}
+        {/* Desktop nav links — centered */}
         <div className="hidden md:flex items-center gap-8">
           {links.map(({ label, href }) => (
             <Link
@@ -36,7 +35,7 @@ export function Nav() {
               className={`type-mono-label transition-colors ${
                 pathname === href
                   ? "text-[#000000]"
-                  : "text-[#959494] hover:text-[#000000]"
+                  : "text-[#2b2b2b] hover:text-[#000000]"
               }`}
             >
               {label}
@@ -44,13 +43,19 @@ export function Nav() {
           ))}
         </div>
 
-        {/* CTA + hamburger */}
-        <div className="flex items-center gap-3">
+        {/* CTA + hamburger — flex-1, right-aligned */}
+        <div className="flex-1 flex items-center justify-end gap-3">
           <Link
-            href="/auth/signup"
-            className="hidden md:block type-mono-button bg-[#000000] text-white px-6 py-2 rounded-sm hover:bg-[#222222] transition-colors"
+            href="/contact"
+            className="hidden md:block type-mono-button bg-[#2b2b2b] text-white px-6 py-2 rounded-sm hover:bg-[#1a1a1a] transition-colors"
           >
-            Get your benchmark
+            Contact
+          </Link>
+          <Link
+            href="/auth/login"
+            className="hidden md:block type-mono-button bg-[#CB3CFF] text-white px-6 py-2 rounded-sm hover:bg-[#b530e6] transition-colors"
+          >
+            Log In
           </Link>
           <button
             onClick={() => setMobileOpen(true)}
@@ -62,7 +67,7 @@ export function Nav() {
         </div>
       </div>
 
-      {/* Mobile full-screen overlay */}
+      {/* Mobile full-screen overlay — only mounted when open so links aren't keyboard-focusable when closed */}
       {mobileOpen && (
         <div className="fixed inset-0 bg-canvas-dark z-100 flex flex-col items-center justify-center">
           <button
@@ -87,11 +92,18 @@ export function Nav() {
               </Link>
             ))}
             <Link
-              href="/auth/signup"
+              href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="type-mono-button bg-white text-[#000000] px-8 py-3 rounded-sm mt-4"
+              className="type-mono-button bg-[#2b2b2b] text-white px-8 py-3 rounded-sm mt-4"
             >
-              Get your benchmark
+              Contact
+            </Link>
+            <Link
+              href="/auth/login"
+              onClick={() => setMobileOpen(false)}
+              className="type-mono-button bg-[#CB3CFF] text-white px-8 py-3 rounded-sm"
+            >
+              Log In
             </Link>
           </div>
         </div>

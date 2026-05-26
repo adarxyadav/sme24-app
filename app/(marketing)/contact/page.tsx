@@ -10,11 +10,11 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white py-20 border-b border-[#E8E8E8]">
+      <section className="bg-canvas py-20 border-b border-[#E8E8E8]">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="type-mono-eyebrow text-[#959494] mb-4">/ Contact</p>
+          <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">/ Contact</p>
           <h1 className="type-display-xxl text-[#000000] mb-6">Get in touch</h1>
-          <p className="type-body-lg text-[#959494] max-w-2xl">
+          <p className="type-body-lg text-[#2b2b2b] max-w-2xl">
             Questions about packages, expert applications, or enterprise
             pricing — we respond within one business day.
           </p>
@@ -22,10 +22,10 @@ export default function ContactPage() {
       </section>
 
       {/* Form */}
-      <section className="bg-white py-20">
+      <section className="bg-canvas py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-2xl">
-            <p className="type-mono-eyebrow text-[#959494] mb-4">
+            <p className="type-mono-eyebrow text-[#2b2b2b] mb-4">
               / Send a message
             </p>
             <h2 className="type-display-xl text-[#000000] mb-12">

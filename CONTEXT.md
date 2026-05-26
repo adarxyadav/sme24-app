@@ -61,7 +61,7 @@ _Avoid_: credits, tokens, allowance
 ### Payments and Engagements
 
 **Package**:
-A fixed-price product definition. Defined in `lib/packages.ts`. The input to Stripe Checkout. Not a database entity. Four packages:
+A fixed-price product definition. Currently defined inline in `app/(marketing)/packages/page.tsx`; extracted to `lib/packages.ts` in Unit 09. The input to Stripe Checkout. Not a database entity. Four packages:
 - **EHS Snapshot** — CHF 2,000. Remote (1 day). Output: Top 5 Risks. Via Stripe Checkout.
 - **EHS Reality Check** — CHF 5,000. On-Site (2 days). Output: Top 20 Risks. Via Stripe Checkout.
 - **EHS Transformation Plan** — CHF 10,000. On-Site (5 days). Output: Gap Plan & Timeline. Via Stripe Checkout.
